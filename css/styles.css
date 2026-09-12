@@ -1,0 +1,219 @@
+/* ==========================================================================
+   Amarillo Miel · Club de Tejido & Flores Amarillas
+   Estilos Cute & Paleta Pastel Personalizada
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-butter-yellow: #FEF08A;
+  --color-warm-yellow: #FDE047;
+  --color-bright-yellow: #EAB308;
+  --color-pastel-cream: #FFFDF9;
+  --color-warm-cream: #FAF5EA;
+  --color-blush-pink: #FCE7F3;
+  --color-rose-soft: #F472B6;
+  --color-sage-soft: #DCFCE7;
+  --color-sage-green: #4ADE80;
+  --color-mocca: #451A03;
+  --color-mocca-light: #78350F;
+  --color-text-body: #57534E;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: var(--color-mocca);
+  background-color: var(--color-pastel-cream);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-serif-cute {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom Pastel Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #FEFCE8;
+}
+::-webkit-scrollbar-thumb {
+  background: #FDE047;
+  border-radius: 999px;
+  border: 2px solid #FEFCE8;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FACC15;
+}
+
+/* Animaciones Flotantes Suaves */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-3deg);
+  }
+}
+
+@keyframes pulseGently {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(253, 224, 71, 0.5);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 12px rgba(253, 224, 71, 0);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatReverse 7s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.animate-pulse-gently {
+  animation: pulseGently 3s infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+/* Sombras suaves y esponjosas */
+.shadow-cute {
+  box-shadow: 0 15px 35px -5px rgba(234, 179, 8, 0.2), 0 5px 15px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-cute-pink {
+  box-shadow: 0 15px 35px -5px rgba(244, 114, 182, 0.2), 0 5px 15px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-cute-card {
+  box-shadow: 0 10px 25px -3px rgba(120, 53, 15, 0.08), 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.shadow-cute-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -4px rgba(120, 53, 15, 0.14), 0 8px 16px rgba(0, 0, 0, 0.04);
+}
+
+/* Estilo Polaroid con Washi Tape */
+.polaroid-card {
+  background: #FFFFFF;
+  padding: 12px 12px 28px 12px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(120, 53, 15, 0.09);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.polaroid-card:hover {
+  transform: scale(1.03) rotate(0deg) !important;
+  z-index: 10;
+}
+
+.washi-tape-yellow {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 22px;
+  background-color: rgba(254, 240, 138, 0.85);
+  border-left: 2px dashed rgba(234, 179, 8, 0.4);
+  border-right: 2px dashed rgba(234, 179, 8, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 2;
+}
+
+.washi-tape-pink {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 22px;
+  background-color: rgba(252, 231, 243, 0.85);
+  border-left: 2px dashed rgba(244, 114, 182, 0.4);
+  border-right: 2px dashed rgba(244, 114, 182, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 2;
+}
+
+/* Textura sutil de puntitos de fondo */
+.bg-cute-dots {
+  background-image: radial-gradient(#FDE047 1.5px, transparent 1.5px), radial-gradient(#FBCFE8 1.5px, #FFFDF9 1.5px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+.bg-soft-gradient {
+  background: linear-gradient(180deg, #FFFDF7 0%, #FEF9C3 35%, #FCE7F3 75%, #FFFDF7 100%);
+}
+
+/* Botón Cute Bouncy */
+.btn-cute {
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-cute:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-cute:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Glassmorphism Suave */
+.glass-cute {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(254, 240, 138, 0.5);
+}
+
+/* Badges */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Confetti Daisy Shape styling */
+.daisy-petal {
+  position: absolute;
+  pointer-events: none;
+  z-index: 999;
+}
