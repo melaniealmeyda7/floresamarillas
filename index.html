@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amarillo Miel · Talleres de Flores Amarillas, Planes Chill & Regalos</title>
-  <meta name="description" content="Aprende a tejer tus propias flores amarillas eternas en una tarde 100% chill. Café de especialidad, materiales incluidos y la mejor compañía. ¡Reserva tu cupo!">
+  <title>Amarillo Miel · Flores Amarillas, Llaveritos & Planes Chill</title>
+  <meta name="description" content="Venta de girasoles, tulipanes, margaritas y llaveritos de florcitas tejidos a crochet. Regalos eternos que nunca se marchitan. ¡Próximamente nueva temporada de talleres!">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -65,217 +65,309 @@
   <!-- Estilos personalizados -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-cream-50 text-stone-700 antialiased selection:bg-butter-200 selection:text-mocca-900">
+<body class="bg-cream-50 text-stone-700 antialiased selection:bg-butter-200 selection:text-mocca-900 overflow-x-hidden">
 
   <!-- =========================================================================
        1. Top Announcement Bar (Urgencia & Beneficio)
        ========================================================================= -->
-  <div class="bg-gradient-to-r from-butter-200 via-yellow-200 to-blush-100 py-2.5 px-4 text-center border-b border-butter-300/60 sticky top-0 z-50">
+  <div class="bg-gradient-to-r from-butter-200 via-yellow-200 to-blush-100 py-2 px-4 text-center border-b border-butter-300/60 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm font-semibold text-mocca-900">
-      <span class="inline-flex items-center gap-1 bg-white/80 px-2.5 py-0.5 rounded-full text-amber-900 border border-amber-300 shadow-xs">
+      <span class="inline-flex items-center gap-1 bg-white/90 px-2.5 py-0.5 rounded-full text-amber-900 border border-amber-300 shadow-xs">
         <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600 animate-spin-slow"></i>
         Temporada de Flores Amarillas
       </span>
-      <span>🌼 ¡Cupos limitados para este fin de semana!</span>
+      <span>🌼 ¡Girasoles, tulipanes y llaveritos listos para envío inmediato!</span>
       <span class="hidden md:inline text-amber-600 font-bold">•</span>
-      <span class="hidden md:inline text-mocca-800">Usa el código <strong class="underline decoration-pink-400">AMIGUIS10</strong> para 10% OFF en entradas dobles</span>
-      <a href="#eventos" class="underline hover:text-pink-600 font-bold ml-1 transition-colors flex items-center gap-0.5">
-        Ver fechas disponibles <i data-lucide="arrow-right" class="w-3.5 h-3.5 inline"></i>
+      <span class="hidden md:inline text-mocca-800">Usa el cupón <strong class="underline decoration-pink-400">AMIGUIS10</strong> para 10% OFF</span>
+      <a href="#tienda" class="underline hover:text-pink-600 font-bold ml-1 transition-colors flex items-center gap-0.5">
+        Ver Tienda <i data-lucide="arrow-right" class="w-3.5 h-3.5 inline"></i>
       </a>
     </div>
   </div>
 
   <!-- =========================================================================
-       2. Navbar Cute
+       2. Navbar Cute con Botón para Barra Lateral (Sidebar)
        ========================================================================= -->
-  <nav class="bg-white/85 backdrop-blur-md border-b border-amber-100/80 sticky top-9 z-40 transition-all">
+  <nav class="bg-white/90 backdrop-blur-md border-b border-amber-100/80 sticky top-9 z-40 transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
       <!-- Logo Cute -->
       <a href="#" class="flex items-center gap-3 group">
-        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-butter-300 via-amber-200 to-blush-200 flex items-center justify-center shadow-cute group-hover:scale-105 transition-transform">
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-butter-300 via-amber-200 to-blush-200 flex items-center justify-center shadow-cute group-hover:scale-105 transition-transform">
           <span class="text-2xl">🌻</span>
         </div>
         <div>
-          <span class="text-xl sm:text-2xl font-extrabold text-stone-900 font-heading tracking-tight block leading-none">
+          <span class="text-lg sm:text-2xl font-extrabold text-stone-900 font-heading tracking-tight block leading-none">
             Amarillo<span class="text-amber-500">Miel</span>
           </span>
-          <span class="text-[11px] font-semibold text-amber-800 uppercase tracking-widest block mt-0.5">
-            Club de Tejido & Planes Chill
+          <span class="text-[10px] sm:text-[11px] font-semibold text-amber-800 uppercase tracking-widest block mt-0.5">
+            Flores & Llaveritos Eternos
           </span>
         </div>
       </a>
 
-      <!-- Enlaces de navegación desktop -->
-      <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-stone-700">
-        <a href="#experiencia" class="hover:text-amber-600 transition-colors">La Experiencia</a>
-        <a href="#eventos" class="hover:text-amber-600 transition-colors flex items-center gap-1.5">
-          <span>Talleres & Costos</span>
-          <span class="bg-amber-100 text-amber-900 text-[10px] px-2 py-0.5 rounded-full font-bold">4 Fechas</span>
+      <!-- Enlaces de navegación desktop y tablets grandes -->
+      <div class="hidden xl:flex items-center gap-7 text-sm font-semibold text-stone-700">
+        <a href="#tienda" class="hover:text-amber-600 transition-colors flex items-center gap-1">
+          <span>Tienda de Flores</span>
+          <span class="bg-amber-100 text-amber-900 text-[10px] px-2 py-0.5 rounded-full font-bold">En Stock</span>
         </a>
-        <a href="#regalos" class="hover:text-amber-600 transition-colors flex items-center gap-1">
-          <span>Regalos & Kits</span>
-          <span class="w-2 h-2 rounded-full bg-pink-400"></span>
+        <button onclick="filterCategory('llaveros')" class="hover:text-amber-600 transition-colors flex items-center gap-1">
+          <span>Llaveritos Cute</span>
+          <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
+        </button>
+        <a href="#talleres-proximamente" class="hover:text-amber-600 transition-colors flex items-center gap-1">
+          <span>Próximamente Talleres</span>
+          <span class="bg-pink-100 text-pink-700 text-[10px] px-2 py-0.5 rounded-full font-bold">VIP</span>
         </a>
-        <a href="#galeria" class="hover:text-amber-600 transition-colors">Momentos</a>
-        <a href="#testimonios" class="hover:text-amber-600 transition-colors">Testimonios</a>
+        <a href="#galeria" class="hover:text-amber-600 transition-colors">Fotos Reales</a>
         <a href="#faq" class="hover:text-amber-600 transition-colors">Preguntas</a>
       </div>
 
-      <!-- Acciones de cabecera -->
-      <div class="flex items-center gap-3">
+      <!-- Acciones de cabecera: Botón WhatsApp y Botón Menú Lateral (Sidebar) -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <a 
+          href="https://wa.me/51987654321?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20flores%20amarillas%20o%20llaveritos%20🌻" 
+          target="_blank"
+          class="btn-cute bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold py-2.5 px-3.5 sm:px-4 rounded-2xl text-xs sm:text-sm flex items-center gap-1.5 shadow-xs">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+          <span class="hidden sm:inline">WhatsApp</span>
+        </a>
+
+        <a 
+          href="#tienda"
+          class="hidden sm:flex btn-cute bg-gradient-to-r from-amber-400 to-yellow-400 text-amber-950 font-bold py-2.5 px-4 rounded-2xl text-xs sm:text-sm items-center gap-1.5 shadow-cute border border-amber-300">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          <span>Comprar</span>
+        </a>
+
+        <!-- Botón de apertura de barra lateral (Sidebar Toggle) -->
         <button 
-          onclick="openBookingModal('evt-01')"
-          class="btn-cute bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 hover:from-amber-500 hover:to-yellow-400 text-amber-950 font-bold py-2.5 px-5 rounded-2xl shadow-cute text-sm flex items-center gap-2 border border-amber-300">
-          <i data-lucide="sparkle" class="w-4 h-4 text-amber-900"></i>
-          <span>Reservar Cupo</span>
+          id="sidebar-open-btn"
+          aria-label="Abrir Menú Lateral"
+          class="btn-cute bg-cream-100 hover:bg-cream-200 text-stone-800 p-2.5 sm:p-3 rounded-2xl border border-amber-200/80 shadow-xs flex items-center justify-center">
+          <i data-lucide="menu" class="w-5 h-5 text-amber-900"></i>
         </button>
       </div>
+
     </div>
   </nav>
 
   <!-- =========================================================================
-       3. Hero Section (Alto Impacto, Conversión & Estética Pastel)
+       3. Barra Lateral del Menú (Off-Canvas Sidebar Drawer)
        ========================================================================= -->
-  <header class="relative overflow-hidden pt-10 pb-20 sm:pt-16 sm:pb-28 bg-soft-gradient">
+  <div id="sidebar-backdrop" class="fixed inset-0 bg-stone-900/40 backdrop-blur-xs z-50 hidden opacity-0 transition-opacity duration-300"></div>
+
+  <aside 
+    id="sidebar-menu" 
+    class="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white z-50 shadow-2xl border-l-2 border-amber-200 transform translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between overflow-y-auto">
+    
+    <div>
+      <!-- Cabecera del Sidebar -->
+      <div class="p-6 border-b border-amber-100 flex items-center justify-between bg-gradient-to-r from-cream-50 to-amber-50">
+        <div class="flex items-center gap-2.5">
+          <span class="text-2xl">🌻</span>
+          <div>
+            <span class="font-extrabold text-stone-900 font-heading text-lg block leading-tight">Amarillo Miel</span>
+            <span class="text-[10px] font-bold text-amber-800 uppercase tracking-widest">Menú de Navegación</span>
+          </div>
+        </div>
+        <button 
+          id="sidebar-close-btn"
+          aria-label="Cerrar Menú"
+          class="w-9 h-9 rounded-xl bg-white hover:bg-stone-100 text-stone-600 flex items-center justify-center border border-stone-200 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Cupón activo dentro del sidebar -->
+      <div class="p-4 mx-4 my-4 rounded-2xl bg-gradient-to-r from-yellow-100 to-pink-100 border border-amber-200">
+        <p class="text-xs font-bold text-amber-950 flex items-center gap-1.5">
+          <i data-lucide="tag" class="w-3.5 h-3.5 text-pink-600"></i> Cupón: <strong>AMIGUIS10</strong>
+        </p>
+        <p class="text-[11px] text-stone-600 mt-0.5">10% OFF en pedidos mayores a S/. 60</p>
+      </div>
+
+      <!-- Lista de Enlaces de Navegación -->
+      <nav class="px-4 py-2 space-y-1 text-sm font-bold text-stone-700">
+        <a href="#tienda" class="sidebar-link flex items-center justify-between p-3 rounded-2xl hover:bg-amber-50 hover:text-amber-900 transition-all">
+          <div class="flex items-center gap-3">
+            <span class="text-lg">🛍️</span>
+            <span>Tienda de Flores & Ramos</span>
+          </div>
+          <span class="text-[10px] bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full font-extrabold">En Stock</span>
+        </a>
+
+        <a href="#tienda" onclick="filterCategory('llaveros')" class="sidebar-link flex items-center justify-between p-3 rounded-2xl hover:bg-pink-50 hover:text-pink-900 transition-all">
+          <div class="flex items-center gap-3">
+            <span class="text-lg">🔑</span>
+            <span>Llaveritos de Florcitas</span>
+          </div>
+          <span class="text-[10px] bg-pink-100 text-pink-800 px-2 py-0.5 rounded-full font-extrabold">¡Nuevo!</span>
+        </a>
+
+        <a href="#talleres-proximamente" class="sidebar-link flex items-center justify-between p-3 rounded-2xl hover:bg-amber-50 hover:text-amber-900 transition-all">
+          <div class="flex items-center gap-3">
+            <span class="text-lg">⏳</span>
+            <span>Próximamente Talleres</span>
+          </div>
+          <span class="text-[10px] bg-amber-200 text-amber-950 px-2 py-0.5 rounded-full font-extrabold">Lista VIP</span>
+        </a>
+
+        <a href="#galeria" class="sidebar-link flex items-center gap-3 p-3 rounded-2xl hover:bg-amber-50 hover:text-amber-900 transition-all">
+          <span class="text-lg">📸</span>
+          <span>Fotos de Clientes Reales</span>
+        </a>
+
+        <a href="#testimonios" class="sidebar-link flex items-center gap-3 p-3 rounded-2xl hover:bg-amber-50 hover:text-amber-900 transition-all">
+          <span class="text-lg">💬</span>
+          <span>Opiniones & Reseñas</span>
+        </a>
+
+        <a href="#faq" class="sidebar-link flex items-center gap-3 p-3 rounded-2xl hover:bg-amber-50 hover:text-amber-900 transition-all">
+          <span class="text-lg">💡</span>
+          <span>Preguntas Frecuentes</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Pie del Sidebar -->
+    <div class="p-5 border-t border-amber-100 bg-cream-50 space-y-3">
+      <a 
+        href="https://wa.me/51987654321?text=Hola!%20Quiero%20hacer%20un%20pedido%20o%20consultar%20por%20las%20flores%20amarillas%20🌻" 
+        target="_blank"
+        class="w-full btn-cute bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-3 px-4 rounded-2xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
+        <span>Atención por WhatsApp</span>
+      </a>
+      <p class="text-[11px] text-center text-stone-600">
+        📦 Envíos rápidos en Lima y a todo el Perú
+      </p>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       4. Hero Section Adaptativo (Venta Inmediata de Flores & Llaveritos)
+       ========================================================================= -->
+  <header class="relative overflow-hidden pt-8 pb-16 sm:pt-14 sm:pb-24 bg-soft-gradient">
     <!-- Flores flotantes decorativas -->
-    <div class="absolute top-12 left-6 text-3xl sm:text-4xl animate-float opacity-80 select-none">🌼</div>
-    <div class="absolute top-36 right-8 text-3xl sm:text-5xl animate-float-delayed opacity-75 select-none">🌻</div>
-    <div class="absolute bottom-16 left-1/4 text-2xl animate-float opacity-60 select-none">🌸</div>
-    <div class="absolute top-2/3 right-1/3 text-2xl animate-float-delayed opacity-50 select-none">✨</div>
+    <div class="absolute top-10 left-4 text-3xl sm:text-4xl animate-float opacity-80 select-none pointer-events-none">🌼</div>
+    <div class="absolute top-28 right-6 text-3xl sm:text-5xl animate-float-delayed opacity-75 select-none pointer-events-none">🌻</div>
+    <div class="absolute bottom-12 left-1/4 text-2xl animate-float opacity-60 select-none pointer-events-none">🌷</div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
-        <!-- Columna Izquierda: Copywriting persuasivo -->
-        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <!-- Columna Izquierda: Copy persuasivo centrado en productos y regalos -->
+        <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
           
-          <!-- Badges de confianza y social proof -->
-          <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
-            <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-white/90 text-amber-900 border border-amber-200 shadow-sm">
-              <span class="text-base">🌻</span> Edición Primavera 2026
+          <!-- Badges de confianza -->
+          <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-white text-amber-900 border border-amber-200 shadow-xs">
+              <span class="text-base">🌻</span> Edición Especial Flores Amarillas
             </span>
-            <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-pink-100/90 text-pink-900 border border-pink-200">
-              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
-              <span>4.9/5 · +520 Alumnas Felices</span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-pink-100 text-pink-900 border border-pink-200">
+              <i data-lucide="heart" class="w-3.5 h-3.5 fill-pink-500 text-pink-500"></i>
+              <span>Hechas a Mano · Duran para Siempre</span>
             </span>
           </div>
 
           <!-- Titular principal -->
-          <h1 class="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-stone-900 font-heading tracking-tight leading-[1.15]">
-            Teje tus propias <br class="hidden sm:inline">
+          <h1 class="text-3xl sm:text-5xl xl:text-6xl font-extrabold text-stone-900 font-heading tracking-tight leading-[1.15]">
+            Girasoles, tulipanes & <br class="hidden sm:inline">
             <span class="relative inline-block text-amber-800">
-              flores amarillas
+              llaveritos de flores
               <svg class="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 200 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2 7C50 2 150 2 198 7" stroke="#FBBF24" stroke-width="5" stroke-linecap="round"/>
               </svg>
             </span>
-            en una tarde <span class="text-pink-500 font-serif italic">100% chill</span>
+            que nunca se marchitan 💛
           </h1>
 
-          <!-- Subtítulo relajante y emocional -->
-          <p class="text-base sm:text-lg text-stone-700 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
-            Una pausa de 3 horas para desconectar del celular, tomar café o matcha deli, tejer margaritas y girasoles con tus manos, y llevarte a casa un ramo que nunca se marchitará. <strong>¡No necesitas ninguna experiencia previa!</strong>
+          <!-- Subtítulo comercial y claro -->
+          <p class="text-sm sm:text-base md:text-lg text-stone-700 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
+            Flores eternas tejidas a crochet con lanas suaves y broches dorados. Listas en caja de regalo, ramos con luces o mini llaveros para llevar siempre contigo. <strong>¡Envíos inmediatos a todo el país!</strong>
           </p>
 
-          <!-- Badges de valor incluido -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs sm:text-sm font-semibold text-stone-800">
-            <div class="flex items-center gap-2 bg-white/70 p-2.5 rounded-2xl border border-amber-100 shadow-xs">
-              <div class="w-8 h-8 rounded-xl bg-amber-100 flex items-center justify-center shrink-0">
-                <i data-lucide="coffee" class="w-4 h-4 text-amber-700"></i>
-              </div>
-              <span>Café & Matcha rico</span>
+          <!-- Badges de características -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1 text-xs sm:text-sm font-semibold text-stone-800">
+            <div class="flex items-center gap-2 bg-white/80 p-2.5 rounded-2xl border border-amber-100 shadow-xs">
+              <div class="w-7 h-7 rounded-xl bg-amber-100 flex items-center justify-center shrink-0 text-sm">🎁</div>
+              <span>Empaque listo de regalo</span>
             </div>
-            <div class="flex items-center gap-2 bg-white/70 p-2.5 rounded-2xl border border-amber-100 shadow-xs">
-              <div class="w-8 h-8 rounded-xl bg-pink-100 flex items-center justify-center shrink-0">
-                <i data-lucide="package" class="w-4 h-4 text-pink-700"></i>
-              </div>
-              <span>Materiales 100% listos</span>
+            <div class="flex items-center gap-2 bg-white/80 p-2.5 rounded-2xl border border-pink-100 shadow-xs">
+              <div class="w-7 h-7 rounded-xl bg-pink-100 flex items-center justify-center shrink-0 text-sm">💌</div>
+              <span>Dedicatoria con lacre</span>
             </div>
-            <div class="flex items-center gap-2 bg-white/70 p-2.5 rounded-2xl border border-amber-100 shadow-xs col-span-2 sm:col-span-1">
-              <div class="w-8 h-8 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
-                <i data-lucide="smile" class="w-4 h-4 text-emerald-700"></i>
-              </div>
-              <span>Garantía cero estrés</span>
+            <div class="flex items-center gap-2 bg-white/80 p-2.5 rounded-2xl border border-emerald-100 shadow-xs col-span-2 sm:col-span-1">
+              <div class="w-7 h-7 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0 text-sm">🚚</div>
+              <span>Envío 100% seguro</span>
             </div>
           </div>
 
-          <!-- CTAs de conversión directa -->
-          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-            <a href="#eventos" class="w-full sm:w-auto btn-cute bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 hover:from-amber-500 hover:to-yellow-400 text-amber-950 font-extrabold text-base py-4 px-8 rounded-2xl shadow-cute flex items-center justify-center gap-3 border border-amber-300">
-              <span>Ver Fechas & Precios</span>
-              <i data-lucide="arrow-right" class="w-5 h-5 text-amber-900"></i>
+          <!-- CTAs -->
+          <div class="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+            <a href="#tienda" class="w-full sm:w-auto btn-cute bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 hover:from-amber-500 hover:to-yellow-400 text-amber-950 font-extrabold text-sm sm:text-base py-3.5 px-8 rounded-2xl shadow-cute flex items-center justify-center gap-2 border border-amber-300">
+              <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+              <span>Ver Flores & Llaveritos</span>
             </a>
-            <a href="#regalos" class="w-full sm:w-auto btn-cute bg-white hover:bg-pink-50 text-stone-800 font-bold text-base py-4 px-6 rounded-2xl border-2 border-pink-200 shadow-sm flex items-center justify-center gap-2 transition-all">
-              <i data-lucide="gift" class="w-5 h-5 text-pink-500"></i>
-              <span>Comprar para Regalo</span>
+            <a href="#talleres-proximamente" class="w-full sm:w-auto btn-cute bg-white hover:bg-cream-100 text-stone-800 font-bold text-sm sm:text-base py-3.5 px-6 rounded-2xl border-2 border-amber-200 shadow-xs flex items-center justify-center gap-2">
+              <i data-lucide="calendar" class="w-5 h-5 text-amber-600"></i>
+              <span>Próximamente Talleres</span>
             </a>
           </div>
 
-          <!-- Indicador de urgencia en vivo -->
-          <div class="flex items-center justify-center lg:justify-start gap-2 text-xs font-semibold text-amber-900 pt-1">
+          <!-- Aviso de stock -->
+          <div class="flex items-center justify-center lg:justify-start gap-2 text-xs font-semibold text-amber-950 pt-1">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Próximo taller en 4 días · <strong>Quedan solo 3 cupos</strong> en la fecha del 21 Sept.</span>
+            <span>Stock disponible para despacho hoy · Pedidos por WhatsApp en 1 minuto</span>
           </div>
 
         </div>
 
-        <!-- Columna Derecha: Tarjeta Visual Aesthetic Cute -->
+        <!-- Columna Derecha: Tarjeta Fotográfica con fotos reales del cliente -->
         <div class="lg:col-span-5 relative">
-          <!-- Marco decorativo tipo composición Pinterest -->
           <div class="relative mx-auto max-w-md">
             
-            <!-- Tarjeta Central Principal -->
-            <div class="bg-white rounded-3xl p-5 sm:p-6 border-4 border-amber-200/80 shadow-cute relative overflow-hidden">
+            <!-- Tarjeta Central Principal con Foto Real del Llavero Amiguis -->
+            <div class="bg-white rounded-3xl p-4 sm:p-5 border-4 border-amber-200/80 shadow-cute relative overflow-hidden">
               <div class="washi-tape-yellow"></div>
               
-              <!-- Imagen Real de Flores Amarillas tejidas & café -->
-              <div class="w-full h-72 rounded-2xl overflow-hidden relative border border-amber-100 shadow-inner group">
-                <img src="assets/taller-01-girasol.jpg" alt="Tarde de Flores Amarillas & Café" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-stone-900/50 via-transparent to-transparent"></div>
+              <div class="w-full h-72 sm:h-80 rounded-2xl overflow-hidden relative border border-amber-100 shadow-inner group">
+                <img src="assets/llaveros-girasol-margarita.jpg" alt="Dúo Llaveros Girasol y Margarita" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent"></div>
                 <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                  <span class="bg-white/95 backdrop-blur-xs text-amber-950 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-200 shadow-sm flex items-center gap-1.5">
-                    <span class="text-sm">🌻</span> Tu flor tejida a mano
+                  <span class="bg-white/95 backdrop-blur-xs text-amber-950 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-200 shadow-xs flex items-center gap-1.5">
+                    🔑 Dúo Girasol & Margarita
                   </span>
-                  <span class="text-xs bg-amber-400 text-stone-900 font-bold px-2.5 py-1 rounded-full shadow-xs">
-                    Café & Matcha ☕
+                  <span class="text-xs bg-amber-400 text-amber-950 font-black px-2.5 py-1 rounded-full shadow-xs">
+                    S/. 35 (Par)
                   </span>
                 </div>
               </div>
 
-              <!-- Pie de foto lindo y datos del plan -->
-              <div class="mt-4 space-y-2">
-                <div class="flex items-center justify-between">
-                  <span class="font-heading font-extrabold text-stone-900 text-lg">Tarde de Flores & Amigas</span>
-                  <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">
-                    Materiales Incluidos
-                  </span>
-                </div>
-                <p class="text-xs text-stone-600">
-                  Aprenderás los puntos básicos de crochet, armarás los pétalos de tu flor favorita y pasarás una tarde inolvidable.
-                </p>
-              </div>
-            </div>
-
-            <!-- Floating mini card: Testimonio flotante -->
-            <div class="absolute -bottom-6 -left-6 sm:-left-8 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border-2 border-pink-200 shadow-cute-pink max-w-[240px] z-20 animate-float">
-              <div class="flex items-center gap-2 mb-1">
-                <div class="w-7 h-7 rounded-full bg-pink-100 flex items-center justify-center text-xs font-bold text-pink-700">
-                  MC
-                </div>
+              <!-- Pie de foto -->
+              <div class="mt-3.5 flex items-center justify-between">
                 <div>
-                  <h4 class="text-xs font-bold text-stone-900 leading-tight">Mariana C.</h4>
-                  <div class="flex text-amber-400 text-[10px]">★★★★★</div>
+                  <h4 class="font-heading font-extrabold text-stone-900 text-base">Llaveritos Tejidos a Mano</h4>
+                  <p class="text-xs text-stone-600">Ideales para compartir con tu mejor amiga o pareja</p>
                 </div>
+                <button onclick="filterCategory('llaveros')" class="text-xs font-bold text-pink-600 hover:text-pink-700 underline">
+                  Ver modelos
+                </button>
               </div>
-              <p class="text-[11px] text-stone-600 italic leading-snug">
-                "Nunca había tomado un ganchillo en mi vida. ¡Mi girasol quedó hermoso y me relajé un montón!"
-              </p>
             </div>
 
-            <!-- Floating mini card: Cupos alerta -->
-            <div class="absolute -top-4 -right-4 sm:-right-6 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border-2 border-amber-200 shadow-cute z-20 animate-float-delayed flex items-center gap-2">
-              <div class="w-3 h-3 rounded-full bg-amber-500 animate-ping"></div>
-              <span class="text-xs font-bold text-amber-950">¡Solo 12 lugares por fecha!</span>
+            <!-- Mini tarjeta flotante: Caja de tulipanes con luces -->
+            <div class="absolute -bottom-5 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md p-3 rounded-2xl border-2 border-pink-200 shadow-cute-pink max-w-[210px] z-20 animate-float hidden sm:block">
+              <div class="flex items-center gap-2.5">
+                <img src="assets/caja-tulipanes-luces.jpg" alt="Caja con luces" class="w-12 h-12 rounded-xl object-cover">
+                <div>
+                  <span class="text-[10px] font-bold text-pink-600 uppercase block">Caja con Luces</span>
+                  <span class="text-xs font-black text-stone-900 block">Tulipanes LED</span>
+                  <span class="text-[10px] text-emerald-600 font-bold">✓ En stock</span>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -286,243 +378,71 @@
   </header>
 
   <!-- =========================================================================
-       4. La Experiencia Chill (Por qué este plan es único)
+       5. Tienda Dinámica & Ordenada (Girasoles, Tulipanes, Margaritas, Llaveros)
        ========================================================================= -->
-  <section id="experiencia" class="py-20 sm:py-24 bg-white relative">
+  <section id="tienda" class="py-16 sm:py-24 bg-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="badge-pill bg-amber-100 text-amber-900 border border-amber-200 mb-3">
-          🌻 Mucho más que aprender a tejer
+      <!-- Encabezado de la tienda -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="badge-pill bg-amber-100 text-amber-900 border border-amber-200 mb-3 shadow-xs">
+          🛍️ Catálogo Oficial · Entrega Inmediata
         </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 font-heading tracking-tight mb-4">
-          La Experiencia <span class="text-amber-500 font-serif italic">Chill & Crochet</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 font-heading tracking-tight mb-3">
+          Nuestra Colección de <span class="text-amber-500 font-serif italic">Flores & Llaveritos</span>
         </h2>
-        <p class="text-base sm:text-lg text-stone-600">
-          Diseñamos este espacio como un oasis para desacelerar la mente, compartir con personas con tu misma vibra y aprender algo hermoso con tus propias manos.
+        <p class="text-sm sm:text-base text-stone-600">
+          Selecciona una categoría para filtrar. Cada flor y llaverito se envía en empaque cute con tarjetita personalizada opcional.
         </p>
       </div>
 
-      <!-- Grid de 4 pilares -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- Tarjeta 1: Bebidas & Dulces -->
-        <div class="bg-amber-50/60 rounded-3xl p-6 sm:p-7 border border-amber-200/80 shadow-cute-card flex flex-col justify-between">
-          <div>
-            <div class="w-14 h-14 rounded-2xl bg-amber-200/80 flex items-center justify-center text-2xl mb-5 shadow-xs">
-              ☕
-            </div>
-            <h3 class="text-xl font-bold text-stone-900 font-heading mb-2">Café, Matcha & Pastries</h3>
-            <p class="text-sm text-stone-600 leading-relaxed">
-              Disfruta de tu bebida favorita preparada al momento (Iced Matcha, Latte con vainilla o té floral) acompañada de galletitas o postre artesanal.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-amber-200/60 text-xs font-bold text-amber-800">
-            ✓ 100% Incluido en tu entrada
-          </div>
-        </div>
-
-        <!-- Tarjeta 2: Cero Pantallas -->
-        <div class="bg-pink-50/60 rounded-3xl p-6 sm:p-7 border border-pink-200/80 shadow-cute-card flex flex-col justify-between">
-          <div>
-            <div class="w-14 h-14 rounded-2xl bg-pink-200/80 flex items-center justify-center text-2xl mb-5 shadow-xs">
-              🕯️
-            </div>
-            <h3 class="text-xl font-bold text-stone-900 font-heading mb-2">Terapia & Mindfulness</h3>
-            <p class="text-sm text-stone-600 leading-relaxed">
-              El movimiento repetitivo del crochet reduce los niveles de cortisol y calma la ansiedad. 3 horas sin notificaciones ni prisas.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-pink-200/60 text-xs font-bold text-pink-800">
-            ✓ Desconexión total garantizada
-          </div>
-        </div>
-
-        <!-- Tarjeta 3: Todo Incluido -->
-        <div class="bg-emerald-50/60 rounded-3xl p-6 sm:p-7 border border-emerald-200/80 shadow-cute-card flex flex-col justify-between">
-          <div>
-            <div class="w-14 h-14 rounded-2xl bg-emerald-200/80 flex items-center justify-center text-2xl mb-5 shadow-xs">
-              🧶
-            </div>
-            <h3 class="text-xl font-bold text-stone-900 font-heading mb-2">Todo el Kit para Ti</h3>
-            <p class="text-sm text-stone-600 leading-relaxed">
-              No tienes que comprar nada. Te entregamos tus hilos de algodón premium, aguja suave, patrones impresos y una tote bag hermosa.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-emerald-200/60 text-xs font-bold text-emerald-800">
-            ✓ Te lo llevas todo a casa
-          </div>
-        </div>
-
-        <!-- Tarjeta 4: Ven sola o acompañada -->
-        <div class="bg-yellow-50/60 rounded-3xl p-6 sm:p-7 border border-yellow-200/80 shadow-cute-card flex flex-col justify-between">
-          <div>
-            <div class="w-14 h-14 rounded-2xl bg-yellow-200/80 flex items-center justify-center text-2xl mb-5 shadow-xs">
-              👯‍♀️
-            </div>
-            <h3 class="text-xl font-bold text-stone-900 font-heading mb-2">Vibra Cálida y Segura</h3>
-            <p class="text-sm text-stone-600 leading-relaxed">
-              ¿No tienes con quién ir? ¡El 75% de las asistentes viene sola! Te recibimos con una sonrisa y en 10 minutos estarás conversando y riendo como en casa.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-yellow-200/60 text-xs font-bold text-yellow-800">
-            ✓ Ambiente 100% amigable
-          </div>
-        </div>
-
+      <!-- Barra de Filtros por Categoría (Scroll horizontal suave en móvil/iPad) -->
+      <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar pb-4 mb-10 px-2 scroll-smooth">
+        <button 
+          data-category="all"
+          onclick="filterCategory('all')" 
+          class="tab-filter-btn shrink-0 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold bg-amber-400 text-amber-950 border-2 border-amber-400 shadow-sm transition-all">
+          🌸 Todos los Productos
+        </button>
+        <button 
+          data-category="llaveros"
+          onclick="filterCategory('llaveros')" 
+          class="tab-filter-btn shrink-0 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-stone-700 border-2 border-amber-100 hover:border-amber-300 hover:bg-amber-50 transition-all">
+          🔑 Llaveritos Cute (Nuevo)
+        </button>
+        <button 
+          data-category="girasoles"
+          onclick="filterCategory('girasoles')" 
+          class="tab-filter-btn shrink-0 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-stone-700 border-2 border-amber-100 hover:border-amber-300 hover:bg-amber-50 transition-all">
+          🌻 Girasoles
+        </button>
+        <button 
+          data-category="tulipanes"
+          onclick="filterCategory('tulipanes')" 
+          class="tab-filter-btn shrink-0 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-stone-700 border-2 border-amber-100 hover:border-amber-300 hover:bg-amber-50 transition-all">
+          🌷 Tulipanes
+        </button>
+        <button 
+          data-category="margaritas"
+          onclick="filterCategory('margaritas')" 
+          class="tab-filter-btn shrink-0 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-stone-700 border-2 border-amber-100 hover:border-amber-300 hover:bg-amber-50 transition-all">
+          🌼 Margaritas
+        </button>
+        <button 
+          data-category="packs"
+          onclick="filterCategory('packs')" 
+          class="tab-filter-btn shrink-0 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-stone-700 border-2 border-amber-100 hover:border-amber-300 hover:bg-amber-50 transition-all">
+          🎁 Packs & Cajas
+        </button>
       </div>
 
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       5. Sección de Eventos & Costos (NÚCLEO DE VENTAS)
-       ========================================================================= -->
-  <section id="eventos" class="py-20 sm:py-28 bg-cream-100 relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Encabezado de la sección -->
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="badge-pill bg-yellow-200 text-amber-950 border border-yellow-300 mb-3 shadow-xs">
-          🗓️ Calendario Oficial 2026
-        </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 font-heading tracking-tight mb-4">
-          Próximos Talleres & <span class="text-amber-600">Costos</span>
-        </h2>
-        <p class="text-base sm:text-lg text-stone-600 mb-6">
-          Grupos reducidos de máximo 10 a 14 personas para garantizar atención personalizada paso a paso. Elige tu fecha favorita:
-        </p>
-
-        <!-- Cuenta regresiva visual -->
-        <div class="bg-white/90 border border-amber-200 rounded-3xl p-4 inline-block shadow-sm">
-          <p class="text-xs font-bold text-amber-900 uppercase tracking-wider mb-2">
-            ⏰ Cierre de inscripciones para el próximo taller:
-          </p>
-          <div id="countdown-timer">
-            <!-- Inyectado por JS -->
-          </div>
-        </div>
+      <!-- Grilla Dinámica de Productos Físicos (Responsive móvil 1 col, iPad 2-3 col, PC 4 col) -->
+      <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Renderizado dinámicamente por app.js -->
       </div>
 
-      <!-- Planes y Costos Comparativa Rápida -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        
-        <!-- Plan 1: Individual -->
-        <div class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-amber-100 shadow-sm flex flex-col justify-between">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-stone-600">Para 1 Persona</span>
-            <h3 class="text-2xl font-extrabold text-stone-900 font-heading mt-1 mb-2">Pase Individual Chill</h3>
-            <div class="flex items-baseline gap-1 mb-4">
-              <span class="text-3xl font-extrabold text-amber-950">S/. 135</span>
-              <span class="text-xs text-stone-600">PEN (~$36 USD)</span>
-            </div>
-            <p class="text-xs text-stone-600 mb-5 leading-relaxed">
-              Ideal para regalarte una tarde a ti misma y aprender una nueva habilidad relajante.
-            </p>
-            <ul class="space-y-2.5 text-xs text-stone-600">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 1 Entrada completa (3 horas)</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Kit de hilos, aguja y tote bag</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Bebida de especialidad + postre</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Tu flor amarilla terminada</li>
-            </ul>
-          </div>
-          <button onclick="openBookingModal('evt-01')" class="mt-6 w-full py-3 rounded-2xl bg-amber-50 hover:bg-amber-100 text-amber-900 font-bold text-xs border border-amber-200 transition-colors">
-            Elegir Pase Individual
-          </button>
-        </div>
-
-        <!-- Plan 2: Amiguis (Best-Seller destacado) -->
-        <div class="bg-gradient-to-b from-amber-50 via-white to-pink-50 rounded-3xl p-6 sm:p-7 border-2 border-amber-400 shadow-cute relative flex flex-col justify-between transform md:-translate-y-2">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
-            <span class="bg-gradient-to-r from-pink-500 to-amber-500 text-white text-xs font-black px-4 py-1 rounded-full shadow-sm uppercase tracking-wider">
-              ⭐ Más Popular · 15% OFF
-            </span>
-          </div>
-          <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-pink-600">Para 2 Personas</span>
-            <h3 class="text-2xl font-extrabold text-stone-900 font-heading mt-1 mb-2">Plan Amiguis / Pareja</h3>
-            <div class="flex items-baseline gap-1 mb-1">
-              <span class="text-3xl font-extrabold text-amber-950">S/. 230</span>
-              <span class="text-xs text-stone-600">PEN (~$62 USD Total)</span>
-            </div>
-            <p class="text-xs font-semibold text-pink-600 mb-4">
-              ¡Ahorran S/. 40 comprando juntas! (S/. 115 c/u)
-            </p>
-            <ul class="space-y-2.5 text-xs text-stone-600">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> <strong>2 Entradas</strong> para el mismo taller</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> <strong>2 Kits completos</strong> de materiales</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Bebidas + postres para ambas</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Foto Polaroid de recuerdo de regalo</li>
-            </ul>
-          </div>
-          <button onclick="openBookingModal('evt-01')" class="mt-6 w-full py-3.5 rounded-2xl bg-amber-400 hover:bg-amber-500 text-amber-950 font-extrabold text-sm shadow-md transition-all">
-            Reservar Plan Amiguis (2x)
-          </button>
-        </div>
-
-        <!-- Plan 3: VIP Bloom -->
-        <div class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-amber-100 shadow-sm flex flex-col justify-between">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-stone-600">Experiencia Completa</span>
-            <h3 class="text-2xl font-extrabold text-stone-900 font-heading mt-1 mb-2">Pase VIP Bloom</h3>
-            <div class="flex items-baseline gap-1 mb-4">
-              <span class="text-3xl font-extrabold text-amber-950">S/. 300</span>
-              <span class="text-xs text-stone-600">PEN (~$81 USD)</span>
-            </div>
-            <p class="text-xs text-stone-600 mb-5 leading-relaxed">
-              Para quienes quieren todo: el taller más un ramo grande tejido listo de obsequio.
-            </p>
-            <ul class="space-y-2.5 text-xs text-stone-600">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 1 Entrada taller + kit de materiales</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> <strong>Ramo Extra de Flores Tejidas</strong> listo</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Acceso vitalicio a video-tutoriales</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Merienda premium ilimitada</li>
-            </ul>
-          </div>
-          <button onclick="openBookingModal('evt-01')" class="mt-6 w-full py-3 rounded-2xl bg-amber-50 hover:bg-amber-100 text-amber-900 font-bold text-xs border border-amber-200 transition-colors">
-            Elegir Pase VIP
-          </button>
-        </div>
-
-      </div>
-
-      <!-- Contenedor de Fechas Específicas Dinámicas -->
-      <h3 class="text-xl sm:text-2xl font-bold text-stone-900 font-heading text-center mb-8">
-        Fechas Disponibles para Inscripción
-      </h3>
-
-      <div id="events-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Generado dinámicamente por app.js -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       6. Sección de Regalos & Kits (Venta de productos)
-       ========================================================================= -->
-  <section id="regalos" class="py-20 sm:py-28 bg-white relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="badge-pill bg-pink-100 text-pink-900 border border-pink-200 mb-3">
-          🎁 Detalles con Alma
-        </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 font-heading tracking-tight mb-4">
-          Regala Flores Amarillas <span class="text-pink-500">Eternas</span>
-        </h2>
-        <p class="text-base sm:text-lg text-stone-600">
-          ¿Quieres sorprender a tu pareja, amiga o mamá? Nuestras flores tejidas nunca se marchitan. Puedes pedir el ramo listo, una Gift Card o el kit para tejer en casa.
-        </p>
-      </div>
-
-      <!-- Tarjetas de Regalos -->
-      <div id="gifts-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-        <!-- Generado dinámicamente por app.js -->
-      </div>
-
-      <!-- Banner de Personalización de Regalos -->
-      <div class="bg-gradient-to-r from-pink-50 via-cream-50 to-amber-50 rounded-3xl p-6 sm:p-8 border-2 border-pink-200 shadow-cute flex flex-col md:flex-row items-center justify-between gap-6">
+      <!-- Banner de Dedicatoria Personalizada con Lacre -->
+      <div class="mt-16 bg-gradient-to-r from-pink-50 via-cream-50 to-amber-50 rounded-3xl p-6 sm:p-8 border-2 border-pink-200 shadow-cute flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-4">
           <div class="w-14 h-14 rounded-2xl bg-pink-200 flex items-center justify-center text-3xl shrink-0">
             💌
@@ -532,523 +452,386 @@
               ¿Quieres incluir una dedicatoria escrita a mano?
             </h3>
             <p class="text-xs sm:text-sm text-stone-600">
-              Escribimos tu mensaje personalizado en una tarjetita floral con sobre de cera y lacre sin costo adicional.
+              Escribimos tu dedicatoria especial en tarjeta floral con sobre y sello de lacre sin costo adicional.
             </p>
           </div>
         </div>
-        <button 
-          onclick="orderGiftWhatsApp('gift-01')"
-          class="btn-cute bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-2xl text-sm shrink-0 shadow-sm flex items-center gap-2">
-          <span>Personalizar mi Regalo</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       7. Galería de Momentos Chill (Estilo Polaroid con Washi Tape)
-       ========================================================================= -->
-  <section id="galeria" class="py-20 sm:py-24 bg-cream-50 bg-cute-dots relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="badge-pill bg-amber-100 text-amber-900 border border-amber-200 mb-3">
-          📸 Buenas vibras reales
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 font-heading tracking-tight mb-3">
-          Momentos en Nuestro Club
-        </h2>
-        <p class="text-sm sm:text-base text-stone-600">
-          Así son nuestras tardes: café calientito, risas, lanas suaves y el orgullo de ver florecer tu creación.
-        </p>
-      </div>
-
-      <!-- Cuadrícula Polaroid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        
-        <!-- Polaroid 1 -->
-        <div class="polaroid-card rotate-[-2deg]">
-          <div class="washi-tape-yellow"></div>
-          <div class="h-56 rounded-lg overflow-hidden relative shadow-inner">
-            <img src="assets/taller-01-girasol.jpg" alt="Girasoles hechos en el taller" class="w-full h-full object-cover">
-            <span class="absolute bottom-2 left-2 text-[10px] font-bold text-stone-800 bg-white/90 px-2 py-0.5 rounded-full shadow-xs">
-              Girasoles terminados 🌻
-            </span>
-          </div>
-          <p class="text-center text-xs font-serif italic text-stone-600 mt-3">
-            "Orgullosa de mi primer girasol 💛"
-          </p>
-        </div>
-
-        <!-- Polaroid 2 -->
-        <div class="polaroid-card rotate-[2deg]">
-          <div class="washi-tape-pink"></div>
-          <div class="h-56 rounded-lg overflow-hidden relative shadow-inner">
-            <img src="assets/taller-02-margaritas.jpg" alt="Margaritas al atardecer" class="w-full h-full object-cover">
-            <span class="absolute bottom-2 left-2 text-[10px] font-bold text-stone-800 bg-white/90 px-2 py-0.5 rounded-full shadow-xs">
-              Sunset en el jardín ✨
-            </span>
-          </div>
-          <p class="text-center text-xs font-serif italic text-stone-600 mt-3">
-            "La merienda más rica y aesthetic 🌼"
-          </p>
-        </div>
-
-        <!-- Polaroid 3 -->
-        <div class="polaroid-card rotate-[-1deg]">
-          <div class="washi-tape-yellow"></div>
-          <div class="h-56 rounded-lg overflow-hidden relative shadow-inner">
-            <img src="assets/taller-03-tulipanes.jpg" alt="Tulipanes tejidos en brunch" class="w-full h-full object-cover">
-            <span class="absolute bottom-2 left-2 text-[10px] font-bold text-stone-800 bg-white/90 px-2 py-0.5 rounded-full shadow-xs">
-              Brunch & Tulipanes 🌷
-            </span>
-          </div>
-          <p class="text-center text-xs font-serif italic text-stone-600 mt-3">
-            "Vinimos juntas y salimos fascinadas 🧶"
-          </p>
-        </div>
-
-        <!-- Polaroid 4 -->
-        <div class="polaroid-card rotate-[3deg]">
-          <div class="washi-tape-pink"></div>
-          <div class="h-56 rounded-lg overflow-hidden relative shadow-inner">
-            <img src="assets/taller-04-kit-online.jpg" alt="Kit DIY para tejer en casa" class="w-full h-full object-cover">
-            <span class="absolute bottom-2 left-2 text-[10px] font-bold text-stone-800 bg-white/90 px-2 py-0.5 rounded-full shadow-xs">
-              Kit DIY Teje en Casa 📦
-            </span>
-          </div>
-          <p class="text-center text-xs font-serif italic text-stone-600 mt-3">
-            "Flores que duran para siempre 💫"
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       8. Testimonios Reales (Prueba Social de Conversión)
-       ========================================================================= -->
-  <section id="testimonios" class="py-20 sm:py-24 bg-white relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="badge-pill bg-amber-100 text-amber-900 border border-amber-200 mb-3">
-          💬 Amor de nuestras tejedoras
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 font-heading tracking-tight mb-3">
-          Lo que dicen quienes ya vinieron
-        </h2>
-        <p class="text-sm sm:text-base text-stone-600">
-          La mayoría llegó pensando que no era buena con las manualidades... mira lo que pasó:
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <!-- Review 1 -->
-        <div class="bg-cream-50 rounded-3xl p-6 sm:p-7 border border-amber-100 shadow-sm relative flex flex-col justify-between">
-          <div>
-            <div class="flex text-amber-400 mb-3 text-sm">★★★★★</div>
-            <p class="text-stone-700 text-sm leading-relaxed mb-6 italic">
-              "Fui sola porque ninguna amiga podía y tenía un poco de vergüenza, pero desde que entré el trato fue hermoso. Las profesoras te explican con un amor y paciencia infinita. Mi girasol ahora está en mi escritorio y me alegra todos los días."
-            </p>
-          </div>
-          <div class="flex items-center gap-3 pt-4 border-t border-amber-200/60">
-            <div class="w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center font-bold text-amber-900 text-sm">
-              VR
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-stone-900">Valeria R.</h4>
-              <span class="text-xs text-stone-600">Taller Miraflores · 0 Experiencia previa</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 2 -->
-        <div class="bg-pink-50/50 rounded-3xl p-6 sm:p-7 border border-pink-100 shadow-sm relative flex flex-col justify-between">
-          <div>
-            <div class="flex text-amber-400 mb-3 text-sm">★★★★★</div>
-            <p class="text-stone-700 text-sm leading-relaxed mb-6 italic">
-              "Compré el Plan Amiguis para el cumpleaños de mi mejor amiga. ¡Fue el mejor regalo del mundo! El lugar olía delicioso a café y lavanda, y tejer juntas mientras tomábamos matcha fue súper terapéutico. 1000% recomendado."
-            </p>
-          </div>
-          <div class="flex items-center gap-3 pt-4 border-t border-pink-200/60">
-            <div class="w-10 h-10 rounded-full bg-pink-200 flex items-center justify-center font-bold text-pink-900 text-sm">
-              SG
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-stone-900">Sofía & Gabriela</h4>
-              <span class="text-xs text-stone-600">Plan Amiguis · Taller San Isidro</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 3 -->
-        <div class="bg-cream-50 rounded-3xl p-6 sm:p-7 border border-amber-100 shadow-sm relative flex flex-col justify-between">
-          <div>
-            <div class="flex text-amber-400 mb-3 text-sm">★★★★★</div>
-            <p class="text-stone-700 text-sm leading-relaxed mb-6 italic">
-              "Estaba pasando por una semana súper pesada de trabajo y necesitaba desconectar. El taller fue pura paz mental. Los materiales son de excelente calidad y el postre estaba increíble. Ya me anoté para el siguiente nivel."
-            </p>
-          </div>
-          <div class="flex items-center gap-3 pt-4 border-t border-amber-200/60">
-            <div class="w-10 h-10 rounded-full bg-yellow-200 flex items-center justify-center font-bold text-yellow-900 text-sm">
-              AP
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-stone-900">Andrea P.</h4>
-              <span class="text-xs text-stone-600">Taller Barranco · Repetidora</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       9. Garantía Cero Frustración (Reduce la Fricción de Compra)
-       ========================================================================= -->
-  <section class="py-12 bg-gradient-to-r from-amber-100 via-yellow-100 to-pink-100 border-y border-amber-200">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white text-amber-700 shadow-sm text-2xl mb-4">
-        🌼
-      </div>
-      <h3 class="text-2xl sm:text-3xl font-extrabold text-amber-950 font-heading mb-2">
-        Nuestra Promesa "Cero Frustración"
-      </h3>
-      <p class="text-sm sm:text-base text-stone-700 leading-relaxed max-w-2xl mx-auto font-medium">
-        ¿Te da miedo no entender o quedarte atrás? Te garantizamos que <strong>sales del taller con tu flor terminada y sonriendo</strong>. Y si necesitas ayuda extra, te quedas con nosotras 30 minutos más o te damos una sesión virtual de refuerzo 100% gratis.
-      </p>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       10. Preguntas Frecuentes (FAQ Interactivo)
-       ========================================================================= -->
-  <section id="faq" class="py-20 sm:py-24 bg-white relative">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      
-      <div class="text-center mb-14">
-        <span class="badge-pill bg-amber-100 text-amber-900 border border-amber-200 mb-3">
-          💡 Dudas comunes
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 font-heading tracking-tight mb-3">
-          Preguntas Frecuentes
-        </h2>
-        <p class="text-sm sm:text-base text-stone-600">
-          Todo lo que necesitas saber antes de asegurar tu lugar.
-        </p>
-      </div>
-
-      <div class="space-y-4">
-        
-        <!-- Pregunta 1 -->
-        <div class="faq-item bg-cream-50 rounded-2xl border border-amber-200/80 overflow-hidden">
-          <button class="faq-question w-full p-5 text-left font-bold text-stone-900 text-base flex items-center justify-between gap-4">
-            <span>¿De verdad puedo ir si nunca antes he agarrado una aguja de crochet?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-amber-700 shrink-0 transition-transform duration-200"></i>
-          </button>
-          <div class="faq-answer px-5 pb-5 text-sm text-stone-600 leading-relaxed">
-            ¡Sí, por supuesto! El 80% de nuestras participantes nunca ha tejido antes. El taller está diseñado específicamente desde cero absoluto: cómo sostener la aguja, cómo hacer el anillo mágico, los puntos pétalo a pétalo y el remate final. Vamos a tu propio ritmo.
-          </div>
-        </div>
-
-        <!-- Pregunta 2 -->
-        <div class="faq-item bg-cream-50 rounded-2xl border border-amber-200/80 overflow-hidden">
-          <button class="faq-question w-full p-5 text-left font-bold text-stone-900 text-base flex items-center justify-between gap-4">
-            <span>¿Tengo que llevar algún material o herramienta?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-amber-700 shrink-0 transition-transform duration-200"></i>
-          </button>
-          <div class="faq-answer px-5 pb-5 text-sm text-stone-600 leading-relaxed hidden">
-            ¡Absolutamente nada! Solo trae tu buena vibra. Al llegar te entregamos tu kit completo con madejas de hilos de algodón en tonos amarillos y verdes, aguja ergonómica antifatiga, marcadores de puntos, relleno, aguja lanera y tu tote bag bordada. Todo es tuyo para llevártelo a casa.
-          </div>
-        </div>
-
-        <!-- Pregunta 3 -->
-        <div class="faq-item bg-cream-50 rounded-2xl border border-amber-200/80 overflow-hidden">
-          <button class="faq-question w-full p-5 text-left font-bold text-stone-900 text-base flex items-center justify-between gap-4">
-            <span>¿Qué incluye la merienda / coffee break?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-amber-700 shrink-0 transition-transform duration-200"></i>
-          </button>
-          <div class="faq-answer px-5 pb-5 text-sm text-stone-600 leading-relaxed hidden">
-            Incluye una bebida a tu elección (Iced Matcha, Café Latte, Americano, Té herbal o Mocktail refrescante) y un postre artesanal (galleta de mantequilla floral o porción de queque casero). Contamos con opciones veganas y leches vegetales (avena y almendras).
-          </div>
-        </div>
-
-        <!-- Pregunta 4 -->
-        <div class="faq-item bg-cream-50 rounded-2xl border border-amber-200/80 overflow-hidden">
-          <button class="faq-question w-full p-5 text-left font-bold text-stone-900 text-base flex items-center justify-between gap-4">
-            <span>¿Puedo comprar una entrada para regalarla a otra persona?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-amber-700 shrink-0 transition-transform duration-200"></i>
-          </button>
-          <div class="faq-answer px-5 pb-5 text-sm text-stone-600 leading-relaxed hidden">
-            ¡Sí! Es uno de los regalos favoritos para cumpleaños, aniversarios o el 21 de septiembre. Al reservar marca la opción "Es para regalo" y te prepararemos una Gift Card digital personalizada o física con sobre y lacre con el nombre de tu persona favorita.
-          </div>
-        </div>
-
-        <!-- Pregunta 5 -->
-        <div class="faq-item bg-cream-50 rounded-2xl border border-amber-200/80 overflow-hidden">
-          <button class="faq-question w-full p-5 text-left font-bold text-stone-900 text-base flex items-center justify-between gap-4">
-            <span>¿Cuáles son los métodos de pago aceptados?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-amber-700 shrink-0 transition-transform duration-200"></i>
-          </button>
-          <div class="faq-answer px-5 pb-5 text-sm text-stone-600 leading-relaxed hidden">
-            Aceptamos transferencias bancarias directas (BCP, BBVA, Interbank), Yape, Plin y tarjetas de crédito/débito. También aceptamos PayPal si te encuentras en el extranjero.
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       11. Banner Final de Conversión
-       ========================================================================= -->
-  <section class="py-20 sm:py-24 bg-gradient-to-tr from-amber-200 via-yellow-200 to-pink-200 text-center relative overflow-hidden">
-    <div class="max-w-4xl mx-auto px-4 relative z-10">
-      <span class="text-4xl mb-4 inline-block animate-float">🌻</span>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 font-heading mb-4">
-        Las flores frescas se marchitan en días... <br>
-        <span class="text-amber-800 font-serif italic">las que tejes tú misma duran para siempre.</span>
-      </h2>
-      <p class="text-base sm:text-lg text-stone-700 max-w-xl mx-auto mb-8 font-medium">
-        Regálate una tarde de paz, risas y creatividad. Solo quedan 3 cupos para este sábado. ¿Nos vemos alrededor de la mesa?
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button 
-          onclick="openBookingModal('evt-01')"
-          class="w-full sm:w-auto btn-cute bg-stone-900 hover:bg-stone-800 text-white font-extrabold py-4 px-8 rounded-2xl shadow-xl flex items-center justify-center gap-3 text-base">
-          <span>Asegurar Mi Lugar Ahora</span>
-          <i data-lucide="arrow-right" class="w-5 h-5"></i>
-        </button>
         <a 
-          href="https://wa.me/51987654321?text=Hola!%20Tengo%20unas%20dudas%20sobre%20el%20taller%20de%20flores%20amarillas%20chill%20🌻" 
+          href="https://wa.me/51987654321?text=Hola!%20Quiero%20hacer%20un%20pedido%20con%20tarjeta%20y%20dedicatoria%20personalizada%20con%20lacre%20💌" 
           target="_blank"
-          class="w-full sm:w-auto btn-cute bg-white hover:bg-cream-100 text-stone-800 font-bold py-4 px-6 rounded-2xl shadow-md flex items-center justify-center gap-2 text-base border border-amber-300">
-          <i data-lucide="message-circle" class="w-5 h-5 text-emerald-600"></i>
-          <span>Consultar por WhatsApp</span>
+          class="btn-cute bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-2xl text-xs sm:text-sm shrink-0 shadow-sm flex items-center gap-2">
+          <span>Personalizar con Dedicatoria</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
       </div>
+
     </div>
   </section>
 
   <!-- =========================================================================
-       12. Footer Cute
+       6. Sección: "Próximamente: Talleres Chill & Crochet (Nueva Temporada)"
+       ========================================================================= -->
+  <section id="talleres-proximamente" class="py-16 sm:py-24 bg-cream-100 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Encabezado de Talleres Próximamente -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="badge-pill bg-pink-100 text-pink-900 border border-pink-200 mb-3 shadow-xs">
+          ⏳ Nueva Temporada Primavera 2026
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 font-heading tracking-tight mb-3">
+          Próximamente: <span class="text-amber-600">Talleres Chill & Crochet</span>
+        </h2>
+        <p class="text-sm sm:text-base text-stone-600">
+          Estamos preparando las nuevas fechas y locaciones secretas para nuestras tardes de café, matcha y flores tejidas.
+        </p>
+      </div>
+
+      <!-- Banner de Lista de Espera VIP -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-amber-300 shadow-cute mb-12 flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-100 flex items-center justify-center text-2xl sm:text-3xl shrink-0">
+            ✨
+          </div>
+          <div>
+            <h3 class="text-lg sm:text-xl font-extrabold text-stone-900 font-heading">
+              Únete a la Lista de Espera VIP
+            </h3>
+            <p class="text-xs sm:text-sm text-stone-600 mt-1 max-w-2xl leading-relaxed">
+              Los cupos se agotan en menos de 48 horas. Inscríbete en nuestra lista de aviso prioritario por WhatsApp y serás la primera en recibir el calendario antes de que se haga público, <strong>más un 15% OFF exclusivo de preventa</strong>.
+            </p>
+          </div>
+        </div>
+        <a 
+          href="https://wa.me/51987654321?text=Hola!%20Quiero%20anotarme%20a%20la%20Lista%20de%20Espera%20VIP%20para%20los%20próximos%20talleres%20de%20flores%20amarillas%20🌻✨" 
+          target="_blank"
+          class="w-full lg:w-auto btn-cute bg-gradient-to-r from-amber-400 to-yellow-400 text-amber-950 font-extrabold py-3.5 px-6 rounded-2xl text-xs sm:text-sm shrink-0 shadow-cute border border-amber-300 flex items-center justify-center gap-2">
+          <i data-lucide="bell" class="w-4 h-4"></i>
+          <span>Avisarme cuando abran cupos</span>
+        </a>
+      </div>
+
+      <!-- Tarjetas de Talleres Próximos -->
+      <div id="upcoming-workshops-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <!-- Renderizado dinámicamente por app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. Galería Polaroid con Fotos Reales del Producto
+       ========================================================================= -->
+  <section id="galeria" class="py-16 sm:py-24 bg-cream-50 bg-cute-dots relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="badge-pill bg-amber-100 text-amber-900 border border-amber-200 mb-3">
+          📸 Fotos Reales de Nuestras Creaciones
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 font-heading tracking-tight mb-2">
+          Amor en Cada Puntada
+        </h2>
+        <p class="text-xs sm:text-sm text-stone-600">
+          Así lucen nuestras flores, cajas con luces y llaveros en manos de sus dueñas 💛
+        </p>
+      </div>
+
+      <!-- Cuadrícula Polaroid con Fotos Reales (Responsive 1-2-4 cols) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        
+        <!-- Polaroid 1: Llavero Dúo Amiguis -->
+        <div class="polaroid-card rotate-[-2deg]">
+          <div class="washi-tape-yellow"></div>
+          <div class="h-60 rounded-lg overflow-hidden relative shadow-inner">
+            <img src="assets/llaveros-girasol-margarita.jpg" alt="Dúo Llaveros Girasol y Margarita" class="w-full h-full object-cover">
+            <span class="absolute bottom-2 left-2 text-[10px] font-bold text-stone-800 bg-white/95 px-2.5 py-0.5 rounded-full shadow-xs">
+              Dúo Amiguis 🌻🌼
+            </span>
+          </div>
+          <p class="text-center text-xs font-serif italic text-stone-600 mt-3">
+            "Para llevar a juego con mi bff 💛"
+          </p>
+        </div>
+
+        <!-- Polaroid 2: Caja con Luces -->
+        <div class="polaroid-card rotate-[2deg]">
+          <div class="washi-tape-pink"></div>
+          <div class="h-60 rounded-lg overflow-hidden relative shadow-inner">
+            <img src="assets/caja-tulipanes-luces.jpg" alt="Caja con luces y tulipanes" class="w-full h-full object-cover">
+            <span class="absolute bottom-2 left-2 text-[10px] font-bold text-stone-800 bg-white/95 px-2.5 py-0.5 rounded-full shadow-xs">
+              Caja con Luces LED ✨
+            </span>
+          </div>
+          <p class="text-center text-xs font-serif italic text-stone-600 mt-3">
+            "El regalo más mágico y romántico 💖"
+          </p>
+        </div>
+
+        <!-- Polaroid 3: Mini Ramo Llavero -->
+        <div class="polaroid-card rotate-[-1deg]">
+          <div class="washi-tape-yellow"></div>
+          <div class="h-60 rounded-lg overflow-hidden relative shadow-inner">
+            <img src="assets/llavero-mini-ramo-tulipan.jpg" alt="Mini ramo llavero tulipán" class="w-full h-full object-cover">
+            <span class="absolute bottom-2 left-2 text-[10px] font-bold text-stone-800 bg-white/95 px-2.5 py-0.5 rounded-full shadow-xs">
+              Mini Ramo Kraft 🌷
+            </span>
+          </div>
+          <p class="text-center text-xs font-serif italic text-stone-600 mt-3">
+            "Súper tierno para mi cartera 🔑"
+          </p>
+        </div>
+
+        <!-- Polaroid 4: Pack Llaveros Tulipán -->
+        <div class="polaroid-card rotate-[3deg]">
+          <div class="washi-tape-pink"></div>
+          <div class="h-60 rounded-lg overflow-hidden relative shadow-inner">
+            <img src="assets/llaveros-tulipanes-pack.jpg" alt="Pack de llaveros de tulipán" class="w-full h-full object-cover">
+            <span class="absolute bottom-2 left-2 text-[10px] font-bold text-stone-800 bg-white/95 px-2.5 py-0.5 rounded-full shadow-xs">
+              Pack de Recuerdos 🎁
+            </span>
+          </div>
+          <p class="text-center text-xs font-serif italic text-stone-600 mt-3">
+            "Listos en bolsitas individuales 💫"
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. Testimonios Reales
+       ========================================================================= -->
+  <section id="testimonios" class="py-16 sm:py-20 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="badge-pill bg-amber-100 text-amber-900 border border-amber-200 mb-2">
+          💬 Opiniones Reales
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 font-heading tracking-tight mb-2">
+          Clientes Felices con sus Flores
+        </h2>
+        <p class="text-xs sm:text-sm text-stone-600">
+          Lo que dicen quienes ya recibieron sus ramos y llaveritos en casa:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        
+        <div class="bg-cream-50 rounded-3xl p-6 border border-amber-100 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-2 text-sm">★★★★★</div>
+            <p class="text-stone-700 text-xs sm:text-sm leading-relaxed mb-4 italic">
+              "Compré el dúo de llaveros para mí y mi mejor amiga. ¡Son demasiado tiernos! El punto es perfecto y los colores súper vivos. Llegaron al día siguiente muy bien empaquetados."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-amber-200/60">
+            <div class="w-9 h-9 rounded-full bg-amber-200 flex items-center justify-center font-bold text-amber-900 text-xs">
+              CA
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-stone-900">Camila A.</h4>
+              <span class="text-[11px] text-stone-600">Compró Dúo Llaveritos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-pink-50/50 rounded-3xl p-6 border border-pink-100 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-2 text-sm">★★★★★</div>
+            <p class="text-stone-700 text-xs sm:text-sm leading-relaxed mb-4 italic">
+              "La caja de tulipanes con luces fue el regalo de aniversario perfecto. A mi novia le encantó que las flores fueran eternas y la dedicatoria con sello de lacre le dio un toque súper vintage."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-pink-200/60">
+            <div class="w-9 h-9 rounded-full bg-pink-200 flex items-center justify-center font-bold text-pink-900 text-xs">
+              JM
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-stone-900">Juan Manuel</h4>
+              <span class="text-[11px] text-stone-600">Compró Caja con Luces LED</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-cream-50 rounded-3xl p-6 border border-amber-100 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-2 text-sm">★★★★★</div>
+            <p class="text-stone-700 text-xs sm:text-sm leading-relaxed mb-4 italic">
+              "Pedí el pack de 5 llaveritos de tulipanes para regalarle a mis compañeras de oficina por primavera. ¡Quedaron fascinadas! Cada uno vino con su bolsita individual y tarjeta."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-amber-200/60">
+            <div class="w-9 h-9 rounded-full bg-yellow-200 flex items-center justify-center font-bold text-yellow-900 text-xs">
+              LV
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-stone-900">Lucía V.</h4>
+              <span class="text-[11px] text-stone-600">Compró Pack 5 Llaveros</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. Preguntas Frecuentes (FAQ)
+       ========================================================================= -->
+  <section id="faq" class="py-16 sm:py-20 bg-cream-50 relative">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-12">
+        <span class="badge-pill bg-amber-100 text-amber-900 border border-amber-200 mb-2">
+          💡 Dudas comunes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 font-heading tracking-tight mb-2">
+          Preguntas Frecuentes
+        </h2>
+        <p class="text-xs sm:text-sm text-stone-600">
+          Todo sobre compras, envíos y la nueva temporada de talleres
+        </p>
+      </div>
+
+      <div class="space-y-3.5">
+        
+        <div class="faq-item bg-white rounded-2xl border border-amber-200/80 overflow-hidden shadow-xs">
+          <button class="faq-question w-full p-4 sm:p-5 text-left font-bold text-stone-900 text-sm sm:text-base flex items-center justify-between gap-4">
+            <span>¿Cuánto demora el envío de las flores y llaveritos?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-amber-700 shrink-0 transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer px-4 sm:px-5 pb-5 text-xs sm:text-sm text-stone-600 leading-relaxed">
+            Los pedidos se despachan en 24 a 48 horas en Lima Metropolitana y de 2 a 4 días hábiles para envíos a provincias a través de Olva Courier o Shalom. También contamos con entrega exprés el mismo día por aplicativo (según disponibilidad).
+          </div>
+        </div>
+
+        <div class="faq-item bg-white rounded-2xl border border-amber-200/80 overflow-hidden shadow-xs">
+          <button class="faq-question w-full p-4 sm:p-5 text-left font-bold text-stone-900 text-sm sm:text-base flex items-center justify-between gap-4">
+            <span>¿Los productos vienen empacados para regalo?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-amber-700 shrink-0 transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer px-4 sm:px-5 pb-5 text-xs sm:text-sm text-stone-600 leading-relaxed hidden">
+            ¡Sí, todos! Los ramos vienen en papel coreano waterproof con lazo de satén; las cajas de tulipanes vienen con viruta y luces LED; y los llaveritos vienen en bolsita transparente individual sellada con tarjetita. Además, puedes pedir tu dedicatoria escrita a mano sin costo extra.
+          </div>
+        </div>
+
+        <div class="faq-item bg-white rounded-2xl border border-amber-200/80 overflow-hidden shadow-xs">
+          <button class="faq-question w-full p-4 sm:p-5 text-left font-bold text-stone-900 text-sm sm:text-base flex items-center justify-between gap-4">
+            <span>¿Cuándo se abrirán las nuevas fechas de talleres presenciales?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-amber-700 shrink-0 transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer px-4 sm:px-5 pb-5 text-xs sm:text-sm text-stone-600 leading-relaxed hidden">
+            Actualmente nos encontramos en modo "Próximamente" cerrando fechas y alianzas con nuevas cafeterías hermosas. Si deseas ser de las primeras en inscribirte antes de que se agoten los cupos, puedes presionar el botón "Avisarme cuando abran cupos" para ingresar a nuestra Lista de Espera VIP con 15% OFF de preventa.
+          </div>
+        </div>
+
+        <div class="faq-item bg-white rounded-2xl border border-amber-200/80 overflow-hidden shadow-xs">
+          <button class="faq-question w-full p-4 sm:p-5 text-left font-bold text-stone-900 text-sm sm:text-base flex items-center justify-between gap-4">
+            <span>¿Cuáles son las formas de pago aceptadas?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-amber-700 shrink-0 transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer px-4 sm:px-5 pb-5 text-xs sm:text-sm text-stone-600 leading-relaxed hidden">
+            Aceptamos Yape, Plin, transferencias bancarias directas (BCP, Interbank, BBVA) y tarjetas de crédito o débito mediante link seguro.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       10. Footer Cute
        ========================================================================= -->
   <footer class="bg-stone-900 text-stone-300 py-12 border-t border-stone-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-stone-800">
-        <div class="flex items-center gap-3">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-stone-800 text-center md:text-left">
+        <div class="flex items-center justify-center md:justify-start gap-3">
           <span class="text-3xl">🌻</span>
           <div>
             <span class="text-xl font-bold text-white font-heading">Amarillo Miel</span>
-            <p class="text-xs text-stone-400">Club de Tejido, Planes Chill & Regalos</p>
+            <p class="text-xs text-stone-400">Flores Amarillas, Llaveritos & Planes Chill</p>
           </div>
         </div>
-        <div class="flex items-center gap-6 text-sm text-stone-400">
-          <a href="#experiencia" class="hover:text-yellow-400 transition-colors">La Experiencia</a>
-          <a href="#eventos" class="hover:text-yellow-400 transition-colors">Eventos & Costos</a>
-          <a href="#regalos" class="hover:text-yellow-400 transition-colors">Regalos</a>
+        <div class="flex flex-wrap items-center justify-center gap-5 text-xs sm:text-sm text-stone-400 font-medium">
+          <a href="#tienda" class="hover:text-yellow-400 transition-colors">Tienda</a>
+          <button onclick="filterCategory('llaveros')" class="hover:text-yellow-400 transition-colors">Llaveritos</button>
+          <a href="#talleres-proximamente" class="hover:text-yellow-400 transition-colors">Próximamente Talleres</a>
+          <a href="#galeria" class="hover:text-yellow-400 transition-colors">Fotos</a>
           <a href="#faq" class="hover:text-yellow-400 transition-colors">Preguntas</a>
         </div>
       </div>
-      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-4">
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-3 text-center">
         <p>© 2026 Amarillo Miel · Hecho con amor, lanas suaves y café caliente 💛</p>
-        <p>Lima, Perú · Envíos de kits y flores a todo el país</p>
+        <p>Lima, Perú · Envíos a todo el país</p>
       </div>
     </div>
   </footer>
 
   <!-- =========================================================================
-       13. Sticky Bottom Mobile Quick Bar
+       11. Sticky Mobile Quick Bar (Móvil e iPad compacto)
        ========================================================================= -->
-  <div class="fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-amber-200 p-3 sm:hidden shadow-lg">
+  <div class="fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-amber-200 p-2.5 sm:hidden shadow-lg">
     <div class="flex items-center justify-between gap-2">
-      <div>
-        <span class="text-[10px] text-stone-600 block uppercase font-bold">Desde</span>
-        <span class="text-lg font-extrabold text-amber-950">S/. 135</span>
-      </div>
-      <button 
-        onclick="openBookingModal('evt-01')"
-        class="btn-cute flex-1 bg-gradient-to-r from-amber-400 to-yellow-400 text-amber-950 font-extrabold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-sm">
-        <i data-lucide="sparkle" class="w-3.5 h-3.5"></i>
-        <span>Reservar Cupo</span>
-      </button>
+      <a 
+        href="#tienda"
+        class="flex-1 btn-cute bg-cream-100 hover:bg-cream-200 text-stone-900 font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1 border border-amber-200">
+        <i data-lucide="shopping-bag" class="w-3.5 h-3.5 text-amber-700"></i>
+        <span>Ver Catálogo</span>
+      </a>
+      <a 
+        href="https://wa.me/51987654321?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20flores%20o%20llaveritos%20🌻" 
+        target="_blank"
+        class="flex-1 btn-cute bg-gradient-to-r from-emerald-500 to-green-600 text-white font-extrabold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-sm">
+        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+        <span>WhatsApp</span>
+      </a>
     </div>
   </div>
 
   <!-- =========================================================================
-       14. Mini Widget Lo-Fi Ambient (Esquina inferior derecha)
+       12. Mini Widget Lo-Fi Ambient (Esquina inferior derecha)
        ========================================================================= -->
   <div class="fixed bottom-16 sm:bottom-6 right-4 sm:right-6 z-30">
-    <div class="bg-white/90 backdrop-blur-md rounded-2xl p-2.5 border-2 border-amber-200 shadow-cute flex items-center gap-3 max-w-[220px]">
-      <!-- Mini Vinilo giratorio -->
-      <div id="lofi-disc" class="w-9 h-9 rounded-full bg-stone-900 border-2 border-amber-300 flex items-center justify-center shrink-0">
+    <div class="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 border-2 border-amber-200 shadow-cute flex items-center gap-2.5 max-w-[210px]">
+      <div id="lofi-disc" class="w-8 h-8 rounded-full bg-stone-900 border-2 border-amber-300 flex items-center justify-center shrink-0">
         <span class="text-xs">🌼</span>
       </div>
       <div class="overflow-hidden flex-1">
         <p id="lofi-status" class="text-[11px] font-bold text-stone-800 truncate">Música Chill</p>
-        <span class="text-[9px] text-stone-600 block">Tarde de café</span>
+        <span class="text-[9px] text-stone-500 block">Café & Crochet</span>
       </div>
       <button 
         id="lofi-toggle-btn"
         title="Escuchar sonido relajante"
-        class="w-8 h-8 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 flex items-center justify-center transition-colors shrink-0">
-        <i data-lucide="volume-2" class="w-4 h-4"></i>
+        class="w-7 h-7 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 flex items-center justify-center transition-colors shrink-0">
+        <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
       </button>
     </div>
   </div>
 
-  <!-- =========================================================================
-       15. Modal Interactivo de Reserva / Checkout WhatsApp
-       ========================================================================= -->
+  <!-- Modal Base -->
   <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
-    <!-- Fondo oscuro suave -->
-    <div id="modal-backdrop" class="fixed inset-0 bg-stone-900/50 backdrop-blur-xs transition-opacity"></div>
-
-    <!-- Contenido del modal -->
-    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full relative z-10 shadow-2xl border-2 border-amber-200 max-h-[90vh] overflow-y-auto">
-      
-      <!-- Botón cerrar -->
-      <button id="modal-close-btn" class="absolute top-5 right-5 text-stone-600 hover:text-stone-700 bg-stone-100 hover:bg-stone-200 p-2 rounded-full transition-colors">
+    <div id="modal-backdrop" class="fixed inset-0 bg-stone-900/50 backdrop-blur-xs"></div>
+    <div class="bg-white rounded-3xl p-6 max-w-md w-full relative z-10 shadow-2xl border-2 border-amber-200 text-center">
+      <button id="modal-close-btn" class="absolute top-4 right-4 text-stone-400 hover:text-stone-600 p-2">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
-
-      <!-- Encabezado del modal -->
-      <div class="text-center mb-6">
-        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl mx-auto mb-2">
-          🌻
-        </div>
-        <h3 class="text-2xl font-extrabold text-stone-900 font-heading">
-          Reserva tu Taller Chill
-        </h3>
-        <p class="text-xs text-stone-600 mt-1">
-          Confirma tus datos y te enviaremos la confirmación instantánea por WhatsApp
-        </p>
-      </div>
-
-      <!-- Formulario de reserva -->
-      <form id="booking-form" class="space-y-4">
-        
-        <!-- Selección de Fecha / Evento -->
-        <div>
-          <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1.5">
-            1. Elige tu Fecha & Taller
-          </label>
-          <select id="modal-event-select" class="w-full bg-cream-50 border border-amber-200 rounded-xl px-3.5 py-2.5 text-sm font-medium text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-400">
-            <option value="evt-01">Sábado 21 Sept - Miraflores (Girasoles & Lattes)</option>
-            <option value="evt-02">Domingo 22 Sept - San Isidro (Margaritas Amarillas)</option>
-            <option value="evt-03">Sábado 28 Sept - Barranco (Brunch & Tulipanes)</option>
-            <option value="evt-04">Domingo 29 Sept - Online HD + Kit a Casa</option>
-          </select>
-        </div>
-
-        <!-- Selección de Plan y Costo -->
-        <div>
-          <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1.5">
-            2. Elige tu Plan
-          </label>
-          <div class="grid grid-cols-3 gap-2 text-xs">
-            <label class="border border-amber-200 rounded-xl p-2.5 text-center cursor-pointer hover:bg-amber-50 has-checked:bg-amber-100 has-checked:border-amber-400 has-checked:font-bold">
-              <input type="radio" name="modal-plan" value="individual" checked class="sr-only">
-              <span class="block text-stone-800">1 Cupo</span>
-              <span class="text-amber-900 font-extrabold text-sm block mt-0.5">S/. 135</span>
-            </label>
-            <label class="border border-pink-200 rounded-xl p-2.5 text-center cursor-pointer hover:bg-pink-50 has-checked:bg-pink-100 has-checked:border-pink-400 has-checked:font-bold relative">
-              <input type="radio" name="modal-plan" value="amiguis" class="sr-only">
-              <span class="block text-stone-800">Plan 2x</span>
-              <span class="text-pink-900 font-extrabold text-sm block mt-0.5">S/. 230</span>
-              <span class="absolute -top-2 left-1/2 -translate-x-1/2 bg-pink-500 text-white text-[9px] px-1.5 py-0.2 rounded-full">15% OFF</span>
-            </label>
-            <label class="border border-amber-200 rounded-xl p-2.5 text-center cursor-pointer hover:bg-amber-50 has-checked:bg-amber-100 has-checked:border-amber-400 has-checked:font-bold">
-              <input type="radio" name="modal-plan" value="vip" class="sr-only">
-              <span class="block text-stone-800">VIP Bloom</span>
-              <span class="text-amber-900 font-extrabold text-sm block mt-0.5">S/. 300</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Checkbox de Regalo -->
-        <div class="bg-pink-50/70 p-3 rounded-xl border border-pink-200">
-          <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-pink-900">
-            <input type="checkbox" id="modal-gift-check" class="rounded text-pink-500 focus:ring-pink-400">
-            <span>🎁 ¡Es un regalo para alguien especial! (Incluir tarjeta dedicatoria)</span>
-          </label>
-          
-          <div id="modal-gift-fields" class="mt-3 space-y-2 hidden">
-            <input 
-              type="text" 
-              id="modal-input-recipient" 
-              placeholder="¿Cómo se llama la persona homenajeada?" 
-              class="w-full bg-white border border-pink-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-pink-400">
-            <textarea 
-              id="modal-input-dedication" 
-              rows="2" 
-              placeholder="Dedicatoria para la tarjeta (opcional): 'Para la mejor amiga del mundo...'" 
-              class="w-full bg-white border border-pink-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-pink-400"></textarea>
-          </div>
-        </div>
-
-        <!-- Datos del Comprador -->
-        <div class="space-y-2.5">
-          <div>
-            <label class="block text-xs font-bold text-stone-700 mb-1">Tu Nombre Completo</label>
-            <input 
-              type="text" 
-              id="modal-input-name" 
-              required 
-              placeholder="Ej: Camila Ramos" 
-              class="w-full bg-cream-50 border border-stone-200 rounded-xl px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400">
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-stone-700 mb-1">WhatsApp / Teléfono</label>
-            <input 
-              type="tel" 
-              id="modal-input-phone" 
-              required 
-              placeholder="Ej: +51 987 654 321" 
-              class="w-full bg-cream-50 border border-stone-200 rounded-xl px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400">
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-stone-700 mb-1">Comentarios o Alergias alimentarias (opcional)</label>
-            <input 
-              type="text" 
-              id="modal-input-notes" 
-              placeholder="Ej: Prefiero leche de almendras / voy con mi hermana" 
-              class="w-full bg-cream-50 border border-stone-200 rounded-xl px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400">
-          </div>
-        </div>
-
-        <!-- Resumen de Costo Total -->
-        <div class="bg-amber-50 p-3.5 rounded-2xl border border-amber-200 flex items-center justify-between">
-          <div>
-            <span class="text-xs text-stone-600 block" id="modal-price-breakdown">Total a Pagar</span>
-            <span class="text-xs text-emerald-700 font-bold">✓ Materiales + Merienda Incluidos</span>
-          </div>
-          <div class="text-right">
-            <span id="modal-total-price" class="text-2xl font-black text-amber-950">S/. 135</span>
-          </div>
-        </div>
-
-        <!-- Botón de Envío -->
-        <button 
-          type="submit" 
-          class="w-full btn-cute bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-bold py-3.5 px-4 rounded-2xl shadow-md text-sm flex items-center justify-center gap-2">
-          <i data-lucide="message-circle" class="w-5 h-5"></i>
-          <span>Confirmar y Enviar a WhatsApp</span>
-        </button>
-        <p class="text-[11px] text-center text-stone-600">
-          Al presionar, se abrirá WhatsApp con todos tus datos listos para coordinar el pago en 1 clic.
-        </p>
-
-      </form>
+      <span class="text-3xl mb-2 inline-block">🌻</span>
+      <h3 class="text-xl font-bold text-stone-900 font-heading mb-1">Amarillo Miel</h3>
+      <p class="text-xs text-stone-600 mb-4">¿Deseas atención personalizada por WhatsApp?</p>
+      <a 
+        href="https://wa.me/51987654321?text=Hola!%20Quiero%20hacer%20una%20consulta%20o%20pedido%20🌻" 
+        target="_blank" 
+        class="w-full btn-cute bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-2xl text-sm flex items-center justify-center gap-2">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
+        <span>Abrir WhatsApp</span>
+      </a>
     </div>
   </div>
 

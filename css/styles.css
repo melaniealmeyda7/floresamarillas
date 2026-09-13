@@ -217,3 +217,22 @@ h1, h2, h3, .font-heading {
   pointer-events: none;
   z-index: 999;
 }
+
+/* Ocultar scrollbar en carrusel de categorías para móvil/iPad */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Transiciones de la barra lateral (Sidebar) */
+#sidebar-menu {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#sidebar-backdrop {
+  transition: opacity 0.3s ease;
+}
+

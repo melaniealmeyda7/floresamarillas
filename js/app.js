@@ -1,299 +1,330 @@
 /**
- * Amarillo Miel · Club de Tejido & Flores Amarillas
- * Lógica interactiva: Checkout WhatsApp, Modal de Reservas, Reproductor Lo-Fi, Confeti y Filtros
+ * Amarillo Miel · Flores Amarillas, Llaveritos & Planes Chill
+ * Lógica interactiva: Catálogo dinámico con filtros, Sidebar Drawer, Modo Próximamente Talleres y WhatsApp Checkout
  */
 
-// Configuración de contacto (Personalizable para el negocio)
+// Configuración de contacto
 const CONFIG = {
-  whatsappNumber: "51987654321", // Cambiar por el número del organizador (con código de país)
-  businessName: "Amarillo Miel · Flores Amarillas Club",
-  currencySymbol: "S/.", // o "$", configurable
+  whatsappNumber: "51987654321", // Reemplazar con el número del negocio (con código de país sin +)
+  businessName: "Amarillo Miel · Flores Amarillas & Llaveritos",
+  currencySymbol: "S/.",
   usdRate: 0.27
 };
 
-// Datos de eventos con costos e imágenes ilustrativas
-const EVENTS = [
+// Catálogo completo de Productos Físicos (Girasoles, Tulipanes, Margaritas, Llaveros, Packs)
+const PRODUCTS = [
+  // Llaveritos Cute (Fotos reales del cliente)
   {
-    id: "evt-01",
-    title: "Tarde Chill de Girasoles & Lattes",
-    date: "Sábado 21 de Septiembre",
-    time: "3:30 PM - 6:30 PM",
-    location: "Café Botánico (Miraflores)",
-    spotsTotal: 12,
-    spotsLeft: 3,
-    badge: "🔥 ¡Solo 3 cupos!",
-    flowerType: "Girasol & Margarita Amarilla",
-    image: "assets/taller-01-girasol.jpg",
-    includes: ["Kit completo de hilos & aguja ergonómica", "Bebida a elección (Matcha o Latte)", "Postre artesanal", "Tote Bag bordada de regalo"],
-    prices: {
-      individual: 135,
-      amiguis: 230,
-      vip: 300
-    }
+    id: "prod-llavero-duo",
+    name: "Dúo Llaveritos Amiguis: Girasol & Margarita",
+    category: "llaveros",
+    price: 35,
+    oldPrice: 42,
+    tag: "¡Más Pedido! 🔑",
+    badge: "2 Llaveritos",
+    image: "assets/llaveros-girasol-margarita.jpg",
+    description: "Hermosa parejita de llaveros tejidos a mano (girasol con carita sonriente + margarita blanca con centro amarillo) con argolla y hojita verde modelable.",
+    popular: true
   },
   {
-    id: "evt-02",
-    title: "Sunset & Crochet: Ramillete de Margaritas",
-    date: "Domingo 22 de Septiembre",
-    time: "4:00 PM - 7:00 PM",
-    location: "Jardín Secreto (San Isidro)",
-    spotsTotal: 14,
-    spotsLeft: 4,
-    badge: "✨ Edición Especial Primavera",
-    flowerType: "Ramillete 3 Margaritas Amarillas",
-    image: "assets/taller-02-margaritas.jpg",
-    includes: ["Kit de hilados premium de algodón", "Iced Matcha Latte o Mocktail de frutos amarillos", "Galletas de mantequilla y miel", "Guía paso a paso ilustrada"],
-    prices: {
-      individual: 135,
-      amiguis: 230,
-      vip: 300
-    }
+    id: "prod-llavero-tulipan-ramo",
+    name: "Llavero Mini Ramo Tulipán en Cono Kraft",
+    category: "llaveros",
+    price: 22,
+    oldPrice: 28,
+    tag: "Detalle Tierno 🌷",
+    badge: "Empaque Individual",
+    image: "assets/llavero-mini-ramo-tulipan.jpg",
+    description: "Mini tulipán amarillo tejido con envoltura tipo cono en papel kraft con lacito y bolsita transparente. ¡El regalito perfecto listo para entregar!",
+    popular: true
   },
   {
-    id: "evt-03",
-    title: "Taller Chill & Brunch de Flores Amarillas",
-    date: "Sábado 28 de Septiembre",
-    time: "10:30 AM - 1:30 PM",
-    location: "Green Atelier & Café (Barranco)",
-    spotsTotal: 10,
-    spotsLeft: 2,
-    badge: "⚡ Últimos 2 cupos",
-    flowerType: "Tulipán Amarillo & Margarita",
-    image: "assets/taller-03-tulipanes.jpg",
-    includes: ["Kit completo con caja de madera", "Brunch chill: Toast de aguacate + Café/Té", "Mini ramo terminado extra", "Acceso a comunidad VIP de WhatsApp"],
-    prices: {
-      individual: 145,
-      amiguis: 250,
-      vip: 320
-    }
+    id: "prod-llavero-tulipanes-pack",
+    name: "Pack 5 Llaveros Tulipanes Amarillos",
+    category: "llaveros",
+    price: 65,
+    oldPrice: 85,
+    tag: "Pack Ahorro 🎁",
+    badge: "5 Unidades",
+    image: "assets/llaveros-tulipanes-pack.jpg",
+    description: "Set de 5 llaveritos de tulipanes tejidos, cada uno en su bolsita transparente individual con tarjeta de agradecimiento. Ideal para souvenirs o amigas.",
+    popular: true
   },
   {
-    id: "evt-04",
-    title: "Taller Online en Vivo + Kit a Domicilio",
-    date: "Domingo 29 de Septiembre",
-    time: "4:00 PM - 6:30 PM",
-    location: "Transmisión Zoom HD + Envíos a todo el país",
-    spotsTotal: 25,
-    spotsLeft: 7,
-    badge: "📦 Envío Gratis a Domicilio",
-    flowerType: "Girasol Eterno en Macetita",
-    image: "assets/taller-04-kit-online.jpg",
-    includes: ["Caja de materiales enviada a tu puerta", "Grabación de la clase de por vida", "Soporte personalizado por WhatsApp"],
-    prices: {
-      individual: 120,
-      amiguis: 210,
-      vip: 270
-    }
-  }
-];
+    id: "prod-llavero-girasol-dorado",
+    name: "Llavero Girasol Sonriente con Broche Dorado",
+    category: "llaveros",
+    price: 22,
+    oldPrice: 26,
+    tag: "Kawaii ✨",
+    badge: "Broche Dorado",
+    image: "assets/llaveros-florcitas.jpg",
+    description: "Girasol amarillo tejido con carita tierna bordada y broche mosquetón dorado de alta resistencia para colgar de llaves, mochilas o carteras.",
+    popular: false
+  },
 
-// Datos del catálogo de Regalos
-const GIFTS = [
+  // Tulipanes
   {
-    id: "gift-01",
-    name: "Ramo Eterno 'Sol de Primavera'",
-    tag: "Listo para regalar 🎁",
-    image: "assets/taller-02-margaritas.jpg",
-    description: "3 flores amarillas tejidas a mano con lana aterciopelada, envuelto en papel coreano pastel con cinta de satén y aroma floral.",
+    id: "prod-tulipan-caja-luces",
+    name: "Caja de Regalo con Luces & Tulipanes Eternos",
+    category: "tulipanes",
+    price: 125,
+    oldPrice: 150,
+    tag: "Edición Romántica 💖",
+    badge: "Incluye Luces LED",
+    image: "assets/caja-tulipanes-luces.jpg",
+    description: "Caja kraft premium con viruta de papel, ramo de 3 tulipanes tejidos en papel coreano con lazo de satén y serie de luces LED cálidas para iluminar tu sorpresa.",
+    popular: true
+  },
+  {
+    id: "prod-tulipanes-ramo-florero",
+    name: "Ramo Deluxe: Tulipanes Amarillos en Florero",
+    category: "tulipanes",
+    price: 135,
+    oldPrice: 160,
+    tag: "Decoración Eterna 🌷",
+    badge: "Ramo Completo",
+    image: "assets/taller-03-tulipanes.jpg",
+    description: "Ramo abundante de tulipanes amarillos tejidos a crochet con tallos y hojas largas modelables. Incluye florero cerámico y lazo rústico.",
+    popular: false
+  },
+
+  // Girasoles
+  {
+    id: "prod-girasol-individual",
+    name: "Girasol Sol de Primavera con Café & Relax",
+    category: "girasoles",
+    price: 55,
+    oldPrice: 70,
+    tag: "El Favorito del 21 Sept 🌻",
+    badge: "Flor Emblemática",
+    image: "assets/taller-01-girasol.jpg",
+    description: "Girasol grande tejido con centro espiral color café y pétalos puntiagudos. Envuelto individualmente en papel waterproof pastel con dedicatoria personalizada.",
+    popular: true
+  },
+
+  // Margaritas
+  {
+    id: "prod-margaritas-ramillete",
+    name: "Ramillete Silvestre de Margaritas Amarillas",
+    category: "margaritas",
     price: 95,
     oldPrice: 115,
-    badge: "Best Seller"
+    tag: "Golden Hour 🌼",
+    badge: "Ramillete Completo",
+    image: "assets/taller-02-margaritas.jpg",
+    description: "Ramillete campestre de margaritas amarillas y blancas con hojas verdes, envuelto en papel coreano crema con lazo de yute.",
+    popular: false
   },
+
+  // Packs & DIY
   {
-    id: "gift-02",
-    name: "Kit DIY 'Teje tus Flores Amarillas'",
-    tag: "Para crear en casa 🧶",
-    image: "assets/taller-04-kit-online.jpg",
-    description: "Caja kraft con lanas de algodón en tonos amarillos y verdes, ganchillo ergonómico, marcadores, aguja lanera y video tutorial exclusivo.",
+    id: "prod-kit-diy-casa",
+    name: "Kit DIY 'Teje tus Flores Amarillas en Casa'",
+    category: "packs",
     price: 110,
     oldPrice: 130,
-    badge: "Ideal Regalo"
-  },
-  {
-    id: "gift-03",
-    name: "Gift Card 'Tarde Chill & Tejido'",
-    tag: "Experiencia inolvidable 💌",
-    image: "assets/taller-01-girasol.jpg",
-    description: "Tarjeta de regalo con sobre lacrado y dedicatoria personalizada. Válida para cualquier taller presencial o virtual durante 6 meses.",
-    price: 135,
-    oldPrice: null,
-    badge: "El Favorito de Parejas"
-  },
-  {
-    id: "gift-04",
-    name: "Macetita 'Girasol Sonriente'",
-    tag: "Mini deco adorable 🌻",
-    image: "assets/taller-03-tulipanes.jpg",
-    description: "Girasol tejido sobre base de maceta tejida rellena, con carita tierna bordada. Perfecto para escritorio, mesa de noche o el auto.",
-    price: 65,
-    oldPrice: 80,
-    badge: "Cute & Sweet"
+    tag: "Aprende a tu Ritmo 🧶",
+    badge: "Kit Completo",
+    image: "assets/taller-04-kit-online.jpg",
+    description: "Caja completa con ovillos de algodón amarillo y verde salvia, aguja ergonómica de bambú, marcadores, aguja lanera y guía ilustrada paso a paso.",
+    popular: false
   }
 ];
 
-// Estado global de la aplicación
-let currentSelectedEvent = EVENTS[0];
-let currentSelectedPlan = "individual"; // individual | amiguis | vip
-let isGift = false;
-let loFiPlaying = false;
-let loFiAudio = null;
+// Talleres en Modo "Próximamente" (Lista de espera VIP)
+const UPCOMING_WORKSHOPS = [
+  {
+    id: "ws-01",
+    title: "Tarde Chill de Girasoles & Lattes",
+    season: "Nueva Temporada Primavera 2026",
+    statusBadge: "⏳ Próximamente",
+    location: "Cafetería de Especialidad (Miraflores)",
+    flowerType: "Girasol & Margarita Amarilla",
+    image: "assets/taller-01-girasol.jpg",
+    description: "3 horas de pura desconexión tejiendo pétalos de girasol con café de especialidad y pastries gourmet en un jardín interior aesthetic.",
+    benefits: ["Materiales premium incluidos", "Matcha o Latte + Postre artesanal", "Tote Bag bordada de regalo"]
+  },
+  {
+    id: "ws-02",
+    title: "Sunset & Crochet: Ramillete de Margaritas",
+    season: "Nueva Temporada Primavera 2026",
+    statusBadge: "⏳ Próximamente",
+    location: "Jardín Secreto (San Isidro)",
+    flowerType: "Ramillete 3 Margaritas Amarillas",
+    image: "assets/taller-02-margaritas.jpg",
+    description: "Aprende a tejer un ramillete primaveral durante la hora dorada con mocktails refrescantes y playlist relajante.",
+    benefits: ["Guía ilustrada paso a paso", "Bebida frutal + galletas caseras", "Foto polaroid de recuerdo"]
+  },
+  {
+    id: "ws-03",
+    title: "Brunch & Tulipanes Amarillos",
+    season: "Nueva Temporada Primavera 2026",
+    statusBadge: "⏳ Próximamente",
+    location: "Green Atelier & Café (Barranco)",
+    flowerType: "Tulipán Amarillo & Florero",
+    image: "assets/taller-03-tulipanes.jpg",
+    description: "Una mañana de sábado con tostadas gourmet, café calientito y el paso a paso para tejer tulipanes tridimensionales.",
+    benefits: ["Kit de maderas y ganchillo", "Brunch completo incluido", "Acceso a comunidad VIP"]
+  },
+  {
+    id: "ws-04",
+    title: "Taller Virtual en Vivo + Kit a tu Puerta",
+    season: "Transmisión HD + Envíos Nacionales",
+    statusBadge: "📦 Lista de Espera",
+    location: "Zoom HD + Kit Físico a Domicilio",
+    flowerType: "Macetita Girasol Sonriente",
+    image: "assets/taller-04-kit-online.jpg",
+    description: "Recibe la caja con todos los materiales en tu casa y conéctate en vivo para tejer juntas desde la comodidad de tu sala.",
+    benefits: ["Envío gratis del kit a tu puerta", "Grabación de por vida", "Soporte personalizado vía WhatsApp"]
+  }
+];
 
-// Inicialización cuando carga el DOM
+// Estado global
+let activeCategory = "all";
+let loFiPlaying = false;
+
+// Inicialización del DOM
 document.addEventListener("DOMContentLoaded", () => {
-  renderEvents();
-  renderGifts();
-  initCountdown();
+  renderProducts("all");
+  renderUpcomingWorkshops();
+  initSidebar();
   initFAQ();
   initLoFiPlayer();
   setupModalListeners();
 });
 
-// Renderizar tarjetas de eventos
-function renderEvents() {
-  const container = document.getElementById("events-container");
+// Renderizar Productos Dinámicos con Filtros
+function renderProducts(category = "all") {
+  const container = document.getElementById("products-container");
   if (!container) return;
 
-  container.innerHTML = EVENTS.map((evt) => {
+  activeCategory = category;
+
+  const filtered = category === "all" 
+    ? PRODUCTS 
+    : PRODUCTS.filter(p => p.category === category);
+
+  container.innerHTML = filtered.map((prod) => {
     return `
-      <div class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-amber-100 shadow-cute-card flex flex-col justify-between relative overflow-hidden transition-all duration-300">
-        <!-- Decoración de fondo suave -->
-        <div class="absolute -top-8 -right-8 w-28 h-28 bg-yellow-100 rounded-full opacity-60 blur-xl pointer-events-none"></div>
-
-        <div>
-          <!-- Foto ilustrativa del taller -->
-          <div class="relative w-full h-52 sm:h-60 rounded-2xl overflow-hidden mb-4 border border-amber-100/90 shadow-sm group">
-            <img src="${evt.image}" alt="${evt.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-            <span class="absolute bottom-2.5 left-3 bg-white/95 backdrop-blur-xs text-stone-800 text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-xs border border-amber-200/60">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i> ${evt.flowerType}
-            </span>
-          </div>
-
-          <!-- Header de tarjeta: Badge de cupos y fecha -->
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-200">
-              <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
-              ${evt.badge}
-            </span>
-            <span class="text-xs font-semibold text-stone-500 bg-stone-100 px-2.5 py-1 rounded-full flex items-center gap-1">
-              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-700"></i> ${evt.location.split('(')[1]?.replace(')', '') || 'Presencial'}
-            </span>
-          </div>
-
-          <!-- Título y detalles -->
-          <h3 class="text-xl sm:text-2xl font-bold text-stone-900 font-heading leading-tight mb-2">
-            ${evt.title}
-          </h3>
-          
-          <div class="space-y-1.5 text-sm text-stone-600 mb-5 bg-amber-50/60 p-3 rounded-2xl border border-amber-100/80">
-            <p class="flex items-center gap-2 font-medium text-stone-800">
-              <i data-lucide="calendar" class="w-4 h-4 text-amber-600"></i> ${evt.date}
-            </p>
-            <p class="flex items-center gap-2">
-              <i data-lucide="clock" class="w-4 h-4 text-amber-600"></i> ${evt.time}
-            </p>
-            <p class="flex items-center gap-2">
-              <i data-lucide="map-pin" class="w-4 h-4 text-amber-600"></i> ${evt.location}
-            </p>
-          </div>
-
-          <!-- Lo que incluye -->
-          <div class="mb-6">
-            <p class="text-xs font-bold text-amber-900 uppercase tracking-wider mb-2.5">Tu entrada chill incluye:</p>
-            <ul class="space-y-2 text-xs sm:text-sm text-stone-600">
-              ${evt.includes.map(inc => `
-                <li class="flex items-start gap-2">
-                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
-                  <span>${inc}</span>
-                </li>
-              `).join('')}
-            </ul>
-          </div>
-        </div>
-
-        <!-- Precios y Botón de Acción -->
-        <div class="pt-5 border-t border-amber-100/80 mt-auto">
-          <div class="flex items-end justify-between mb-4">
-            <div>
-              <span class="text-xs text-stone-600 block">Inversión individual</span>
-              <div class="flex items-baseline gap-1.5">
-                <span class="text-2xl sm:text-3xl font-extrabold text-amber-950">${CONFIG.currencySymbol} ${evt.prices.individual}</span>
-                <span class="text-xs text-stone-600">PEN (~$${Math.round(evt.prices.individual * CONFIG.usdRate)} USD)</span>
-              </div>
-            </div>
-            <div class="text-right">
-              <span class="inline-block bg-pink-100 text-pink-700 text-[11px] font-bold px-2 py-0.5 rounded-full mb-0.5">
-                Plan Amiguis 2x: ${CONFIG.currencySymbol} ${evt.prices.amiguis}
-              </span>
-              <p class="text-[10px] text-stone-600">Ahorran ${CONFIG.currencySymbol} ${(evt.prices.individual * 2) - evt.prices.amiguis} juntas</p>
-            </div>
-          </div>
-
-          <button 
-            onclick="openBookingModal('${evt.id}')"
-            class="w-full btn-cute bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 hover:from-amber-500 hover:to-yellow-400 text-amber-950 font-bold py-3.5 px-4 rounded-2xl shadow-cute flex items-center justify-center gap-2 text-sm sm:text-base border border-amber-300">
-            <i data-lucide="sparkle" class="w-4 h-4 text-amber-900"></i>
-            <span>Reservar Mi Cupo</span>
-            <i data-lucide="arrow-right" class="w-4 h-4 text-amber-900"></i>
-          </button>
-          <p class="text-[11px] text-center text-stone-600 mt-2">🔒 Pago seguro y confirmación inmediata vía WhatsApp</p>
-        </div>
-      </div>
-    `;
-  }).join("");
-
-  if (window.lucide) {
-    window.lucide.createIcons();
-  }
-}
-
-// Renderizar tarjetas de regalos
-function renderGifts() {
-  const container = document.getElementById("gifts-container");
-  if (!container) return;
-
-  container.innerHTML = GIFTS.map((gift) => {
-    return `
-      <div class="bg-white rounded-3xl p-5 border-2 border-pink-100 shadow-cute-card flex flex-col justify-between relative group hover:border-pink-300 transition-all duration-300">
-        <!-- Badge cute -->
+      <div class="bg-white rounded-3xl p-5 border-2 border-amber-100 shadow-cute-card flex flex-col justify-between relative group hover:border-amber-300 transition-all duration-300">
+        <!-- Badge cute flotante -->
         <div class="absolute -top-3 left-6 z-10">
-          <span class="bg-pink-400 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
-            ${gift.badge}
+          <span class="bg-gradient-to-r from-amber-400 to-yellow-400 text-amber-950 text-xs font-black px-3 py-1 rounded-full shadow-xs border border-amber-300">
+            ${prod.badge}
           </span>
         </div>
 
         <div>
-          <!-- Foto del producto -->
-          <div class="w-full h-44 rounded-2xl overflow-hidden mb-3.5 border border-pink-100 group-hover:border-pink-200">
-            <img src="${gift.image}" alt="${gift.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <!-- Foto del producto con hover zoom suave -->
+          <div class="w-full h-52 sm:h-56 rounded-2xl overflow-hidden mb-3.5 border border-amber-100/90 relative group-hover:shadow-md transition-shadow">
+            <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent"></div>
+            <span class="absolute bottom-2 left-2 bg-white/95 backdrop-blur-xs text-[10px] font-bold text-stone-800 px-2.5 py-0.5 rounded-full shadow-xs">
+              ${prod.tag}
+            </span>
           </div>
 
-          <span class="text-xs font-semibold text-pink-500 tracking-wide uppercase block mb-1">${gift.tag}</span>
-          <h3 class="text-lg font-bold text-stone-900 font-heading mb-1.5 group-hover:text-pink-600 transition-colors">
-            ${gift.name}
+          <h3 class="text-lg sm:text-xl font-bold text-stone-900 font-heading mb-1.5 group-hover:text-amber-700 transition-colors leading-snug">
+            ${prod.name}
           </h3>
           <p class="text-xs text-stone-600 leading-relaxed mb-4">
-            ${gift.description}
+            ${prod.description}
           </p>
         </div>
 
-        <div class="pt-4 border-t border-pink-100 mt-auto">
-          <div class="flex items-center justify-between mb-4">
+        <div class="pt-3 border-t border-amber-100 mt-auto">
+          <div class="flex items-center justify-between mb-3.5">
             <div class="flex items-baseline gap-2">
-              <span class="text-2xl font-extrabold text-stone-900">${CONFIG.currencySymbol} ${gift.price}</span>
-              ${gift.oldPrice ? `<span class="text-xs text-stone-600 line-through">${CONFIG.currencySymbol} ${gift.oldPrice}</span>` : ''}
+              <span class="text-2xl font-black text-amber-950">${CONFIG.currencySymbol} ${prod.price}</span>
+              ${prod.oldPrice ? `<span class="text-xs text-stone-400 line-through">${CONFIG.currencySymbol} ${prod.oldPrice}</span>` : ''}
             </div>
-            <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full flex items-center gap-1">
-              <i data-lucide="truck" class="w-3.5 h-3.5"></i> Envío rápido
+            <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full flex items-center gap-1 border border-emerald-100">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Listo para enviar
             </span>
           </div>
 
           <button 
-            onclick="orderGiftWhatsApp('${gift.id}')"
-            class="w-full btn-cute bg-pink-100 hover:bg-pink-200 text-pink-900 font-bold py-2.5 px-4 rounded-2xl flex items-center justify-center gap-2 text-sm border border-pink-200 transition-colors">
-            <i data-lucide="gift" class="w-4 h-4 text-pink-600"></i>
-            <span>Pedir para Regalo</span>
+            onclick="orderProductWhatsApp('${prod.id}')"
+            class="w-full btn-cute bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 hover:from-amber-500 hover:to-yellow-400 text-amber-950 font-bold py-3 px-4 rounded-2xl flex items-center justify-center gap-2 text-xs sm:text-sm border border-amber-300 shadow-cute">
+            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-700"></i>
+            <span>Pedir por WhatsApp</span>
           </button>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  // Actualizar estilos activos de los botones de pestañas
+  document.querySelectorAll(".tab-filter-btn").forEach(btn => {
+    const cat = btn.getAttribute("data-category");
+    if (cat === category) {
+      btn.className = "tab-filter-btn shrink-0 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold bg-amber-400 text-amber-950 border-2 border-amber-400 shadow-sm transition-all";
+    } else {
+      btn.className = "tab-filter-btn shrink-0 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-stone-700 border-2 border-amber-100 hover:border-amber-300 hover:bg-amber-50 transition-all";
+    }
+  });
+
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
+// Filtrar productos al hacer clic en las pestañas
+function filterCategory(cat) {
+  renderProducts(cat);
+}
+
+// Renderizar Talleres en Modo "Próximamente"
+function renderUpcomingWorkshops() {
+  const container = document.getElementById("upcoming-workshops-container");
+  if (!container) return;
+
+  container.innerHTML = UPCOMING_WORKSHOPS.map((ws) => {
+    return `
+      <div class="bg-white rounded-3xl p-6 border-2 border-amber-100 shadow-cute-card flex flex-col justify-between relative overflow-hidden transition-all duration-300">
+        <div>
+          <!-- Foto ilustrativa -->
+          <div class="relative w-full h-48 sm:h-52 rounded-2xl overflow-hidden mb-4 border border-amber-100/90 shadow-xs">
+            <img src="${ws.image}" alt="${ws.title}" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-900/50 via-transparent to-transparent"></div>
+            <span class="absolute top-3 right-3 bg-amber-400 text-amber-950 text-xs font-black px-3 py-1 rounded-full shadow-sm border border-amber-300">
+              ${ws.statusBadge}
+            </span>
+            <span class="absolute bottom-2.5 left-3 bg-white/95 text-stone-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+              <i data-lucide="map-pin" class="w-3 h-3 text-amber-600"></i> ${ws.location}
+            </span>
+          </div>
+
+          <!-- Título y temporada -->
+          <span class="text-xs font-bold text-pink-600 uppercase tracking-wider block mb-1">${ws.season}</span>
+          <h3 class="text-xl font-bold text-stone-900 font-heading mb-2">
+            ${ws.title}
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
+            ${ws.description}
+          </p>
+
+          <!-- Beneficios -->
+          <ul class="space-y-1.5 text-xs text-stone-600 mb-6 bg-amber-50/70 p-3 rounded-2xl border border-amber-100">
+            ${ws.benefits.map(b => `
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                <span>${b}</span>
+              </li>
+            `).join("")}
+          </ul>
+        </div>
+
+        <!-- Botón de Lista de Espera -->
+        <div class="pt-3 border-t border-amber-100">
+          <button 
+            onclick="joinWaitlistWhatsApp('${ws.id}')"
+            class="w-full btn-cute bg-white hover:bg-pink-50 text-stone-800 hover:text-pink-900 font-bold py-3 px-4 rounded-2xl flex items-center justify-center gap-2 text-xs sm:text-sm border-2 border-pink-200 shadow-xs transition-colors">
+            <i data-lucide="bell" class="w-4 h-4 text-pink-500"></i>
+            <span>Avisarme cuando abran cupos</span>
+          </button>
+          <p class="text-[10px] text-center text-stone-600 mt-1.5">🎁 Recibirás 15% OFF exclusivo en preventa</p>
         </div>
       </div>
     `;
@@ -304,45 +335,109 @@ function renderGifts() {
   }
 }
 
-// Cuenta regresiva para el próximo evento
-function initCountdown() {
-  const countdownEl = document.getElementById("countdown-timer");
-  if (!countdownEl) return;
+// Control de la Barra Lateral (Sidebar Drawer)
+function initSidebar() {
+  const sidebar = document.getElementById("sidebar-menu");
+  const backdrop = document.getElementById("sidebar-backdrop");
+  const openBtn = document.getElementById("sidebar-open-btn");
+  const closeBtn = document.getElementById("sidebar-close-btn");
+  const links = document.querySelectorAll(".sidebar-link");
 
-  // Próximo evento de muestra (Sábado 21 de Septiembre 3:30 PM)
-  const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate() + 4);
-  targetDate.setHours(15, 30, 0, 0);
-
-  function update() {
-    const now = new Date().getTime();
-    const diff = targetDate.getTime() - now;
-
-    if (diff <= 0) {
-      countdownEl.innerHTML = `<span class="text-amber-800 font-bold">¡Taller en curso o cerrando inscripciones!</span>`;
-      return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    countdownEl.innerHTML = `
-      <div class="flex items-center justify-center gap-2 text-stone-800 font-mono text-sm sm:text-base">
-        <span class="bg-white px-2.5 py-1.5 rounded-xl border border-amber-200 shadow-sm font-bold">${days}d</span> :
-        <span class="bg-white px-2.5 py-1.5 rounded-xl border border-amber-200 shadow-sm font-bold">${String(hours).padStart(2, '0')}h</span> :
-        <span class="bg-white px-2.5 py-1.5 rounded-xl border border-amber-200 shadow-sm font-bold">${String(minutes).padStart(2, '0')}m</span> :
-        <span class="bg-white px-2.5 py-1.5 rounded-xl border border-amber-200 shadow-sm font-bold text-amber-600">${String(seconds).padStart(2, '0')}s</span>
-      </div>
-    `;
+  if (openBtn) {
+    openBtn.addEventListener("click", openSidebar);
   }
-
-  update();
-  setInterval(update, 1000);
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeSidebar);
+  }
+  if (backdrop) {
+    backdrop.addEventListener("click", closeSidebar);
+  }
+  links.forEach(link => {
+    link.addEventListener("click", closeSidebar);
+  });
 }
 
-// Acordeón de FAQ interactivo
+function openSidebar() {
+  const sidebar = document.getElementById("sidebar-menu");
+  const backdrop = document.getElementById("sidebar-backdrop");
+  if (!sidebar || !backdrop) return;
+
+  sidebar.classList.remove("translate-x-full");
+  sidebar.classList.add("translate-x-0");
+  backdrop.classList.remove("hidden");
+  setTimeout(() => {
+    backdrop.classList.remove("opacity-0");
+    backdrop.classList.add("opacity-100");
+  }, 10);
+  document.body.style.overflow = "hidden";
+}
+
+function closeSidebar() {
+  const sidebar = document.getElementById("sidebar-menu");
+  const backdrop = document.getElementById("sidebar-backdrop");
+  if (!sidebar || !backdrop) return;
+
+  sidebar.classList.remove("translate-x-0");
+  sidebar.classList.add("translate-x-full");
+  backdrop.classList.remove("opacity-100");
+  backdrop.classList.add("opacity-0");
+  setTimeout(() => {
+    backdrop.classList.add("hidden");
+    document.body.style.overflow = "auto";
+  }, 300);
+}
+
+// Pedido directo de producto a WhatsApp
+function orderProductWhatsApp(productId) {
+  const prod = PRODUCTS.find(p => p.id === productId);
+  if (!prod) return;
+
+  let message = `¡Hola *${CONFIG.businessName}*! 🌻✨\n\n`;
+  message += `Quiero hacer un pedido de este producto:\n\n`;
+  message += `📦 *Producto:* ${prod.name}\n`;
+  message += `🏷️ *Precio:* ${CONFIG.currencySymbol} ${prod.price}\n`;
+  message += `✨ *Detalle:* ${prod.description}\n\n`;
+  message += `¿Tienen disponibilidad inmediata para envío o entrega y me brindan sus números de pago (Yape/Plin/Transferencia)? ¡Gracias! 💛`;
+
+  const encoded = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+  launchDaisyConfetti();
+  window.open(encoded, "_blank");
+}
+
+// Registro a Lista de Espera VIP de Talleres vía WhatsApp
+function joinWaitlistWhatsApp(workshopId) {
+  const ws = UPCOMING_WORKSHOPS.find(w => w.id === workshopId);
+  const title = ws ? ws.title : "Talleres de Flores Amarillas";
+
+  let message = `¡Hola *${CONFIG.businessName}*! 🌻☕\n\n`;
+  message += `Quiero unirme a la *Lista de Espera VIP* para enterarme primero de las próximas fechas de talleres y recibir el 15% OFF de preventa:\n\n`;
+  message += `🗓️ *Taller de interés:* ${title}\n\n`;
+  message += `Por favor, avísenme apenas se abran las inscripciones. ¡Muchas gracias! 💛`;
+
+  const encoded = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+  launchDaisyConfetti();
+  window.open(encoded, "_blank");
+}
+
+// Modal genérico / personalizado de pedido
+function setupModalListeners() {
+  const modal = document.getElementById("booking-modal");
+  const backdrop = document.getElementById("modal-backdrop");
+  const closeBtn = document.getElementById("modal-close-btn");
+
+  if (backdrop) backdrop.addEventListener("click", closeBookingModal);
+  if (closeBtn) closeBtn.addEventListener("click", closeBookingModal);
+}
+
+function closeBookingModal() {
+  const modal = document.getElementById("booking-modal");
+  if (!modal) return;
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+  document.body.style.overflow = "auto";
+}
+
+// FAQ Interactivo
 function initFAQ() {
   const items = document.querySelectorAll(".faq-item");
   items.forEach((item) => {
@@ -353,8 +448,6 @@ function initFAQ() {
     if (header && content) {
       header.addEventListener("click", () => {
         const isOpen = !content.classList.contains("hidden");
-        
-        // Cerrar todos
         document.querySelectorAll(".faq-answer").forEach(a => a.classList.add("hidden"));
         document.querySelectorAll(".faq-icon").forEach(i => i.style.transform = "rotate(0deg)");
 
@@ -367,171 +460,7 @@ function initFAQ() {
   });
 }
 
-// Control del Modal de Reserva
-function openBookingModal(eventId) {
-  const modal = document.getElementById("booking-modal");
-  const evt = EVENTS.find(e => e.id === eventId) || EVENTS[0];
-  currentSelectedEvent = evt;
-
-  const eventSelect = document.getElementById("modal-event-select");
-  if (eventSelect) {
-    eventSelect.value = evt.id;
-  }
-
-  updateModalPricing();
-  modal.classList.remove("hidden");
-  modal.classList.add("flex");
-  document.body.style.overflow = "hidden";
-
-  // Efecto cute al abrir
-  launchDaisyConfetti();
-}
-
-function closeBookingModal() {
-  const modal = document.getElementById("booking-modal");
-  modal.classList.add("hidden");
-  modal.classList.remove("flex");
-  document.body.style.overflow = "auto";
-}
-
-function setupModalListeners() {
-  const modal = document.getElementById("booking-modal");
-  const backdrop = document.getElementById("modal-backdrop");
-  const closeBtn = document.getElementById("modal-close-btn");
-  const eventSelect = document.getElementById("modal-event-select");
-  const planOptions = document.querySelectorAll('input[name="modal-plan"]');
-  const giftCheckbox = document.getElementById("modal-gift-check");
-
-  if (backdrop) backdrop.addEventListener("click", closeBookingModal);
-  if (closeBtn) closeBtn.addEventListener("click", closeBookingModal);
-
-  if (eventSelect) {
-    eventSelect.addEventListener("change", (e) => {
-      const selected = EVENTS.find(ev => ev.id === e.target.value);
-      if (selected) {
-        currentSelectedEvent = selected;
-        updateModalPricing();
-      }
-    });
-  }
-
-  planOptions.forEach(opt => {
-    opt.addEventListener("change", (e) => {
-      currentSelectedPlan = e.target.value;
-      updateModalPricing();
-    });
-  });
-
-  if (giftCheckbox) {
-    giftCheckbox.addEventListener("change", (e) => {
-      isGift = e.target.checked;
-      const giftFields = document.getElementById("modal-gift-fields");
-      if (giftFields) {
-        giftFields.classList.toggle("hidden", !isGift);
-      }
-    });
-  }
-
-  // Form submit -> Redirigir a WhatsApp
-  const form = document.getElementById("booking-form");
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      submitBookingToWhatsApp();
-    });
-  }
-}
-
-// Calcular precios en el modal
-function updateModalPricing() {
-  const priceDisplay = document.getElementById("modal-total-price");
-  const breakdownDisplay = document.getElementById("modal-price-breakdown");
-  if (!priceDisplay || !currentSelectedEvent) return;
-
-  let total = currentSelectedEvent.prices[currentSelectedPlan];
-  let breakdownText = "";
-
-  if (currentSelectedPlan === "individual") {
-    breakdownText = `1 Cupo Individual · ${currentSelectedEvent.title}`;
-  } else if (currentSelectedPlan === "amiguis") {
-    breakdownText = `Plan Amiguis (2 Cupos con descuento) · ${currentSelectedEvent.title}`;
-  } else if (currentSelectedPlan === "vip") {
-    breakdownText = `Pase VIP All-Inclusive + Ramo Extra · ${currentSelectedEvent.title}`;
-  }
-
-  priceDisplay.textContent = `${CONFIG.currencySymbol} ${total}`;
-  if (breakdownDisplay) {
-    breakdownDisplay.textContent = breakdownText;
-  }
-}
-
-// Generar mensaje y abrir WhatsApp
-function submitBookingToWhatsApp() {
-  const name = document.getElementById("modal-input-name")?.value || "Amiga Tejedora";
-  const phone = document.getElementById("modal-input-phone")?.value || "";
-  const notes = document.getElementById("modal-input-notes")?.value || "";
-  const recipientName = document.getElementById("modal-input-recipient")?.value || "";
-  const dedication = document.getElementById("modal-input-dedication")?.value || "";
-
-  const total = currentSelectedEvent.prices[currentSelectedPlan];
-  const planName = currentSelectedPlan === "individual" 
-    ? "Pase Individual Chill (1 persona)"
-    : currentSelectedPlan === "amiguis"
-    ? "Plan Amiguis (2 personas - 15% OFF)"
-    : "Pase VIP Bloom All-Inclusive";
-
-  let message = `¡Hola *${CONFIG.businessName}*! 🌻✨\n\n`;
-  message += `Quiero reservar mi cupo para el taller chill de flores amarillas:\n\n`;
-  message += `🗓️ *Taller:* ${currentSelectedEvent.title}\n`;
-  message += `📅 *Fecha:* ${currentSelectedEvent.date}\n`;
-  message += `⏰ *Horario:* ${currentSelectedEvent.time}\n`;
-  message += `📍 *Lugar:* ${currentSelectedEvent.location}\n`;
-  message += `🧶 *Plan Elegido:* ${planName}\n`;
-  message += `💰 *Total a abonar:* ${CONFIG.currencySymbol} ${total}\n\n`;
-  message += `👤 *Mi Nombre:* ${name}\n`;
-  if (phone) message += `📱 *Teléfono:* ${phone}\n`;
-
-  if (isGift && recipientName) {
-    message += `\n🎁 *¡ES PARA REGALO!*\n`;
-    message += `💌 *Para:* ${recipientName}\n`;
-    if (dedication) message += `📝 *Dedicatoria:* "${dedication}"\n`;
-  }
-
-  if (notes) {
-    message += `\n💬 *Mensaje / Dudas:* ${notes}\n`;
-  }
-
-  message += `\n¿Me confirman si aún tienen los cupos disponibles y las cuentas de pago (Yape/Plin/Transferencia)? ¡Gracias! 💛`;
-
-  const encodedUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
-  
-  // Confeti festivo
-  launchDaisyConfetti();
-
-  setTimeout(() => {
-    window.open(encodedUrl, "_blank");
-    closeBookingModal();
-  }, 400);
-}
-
-// Pedido directo de regalo por WhatsApp
-function orderGiftWhatsApp(giftId) {
-  const gift = GIFTS.find(g => g.id === giftId);
-  if (!gift) return;
-
-  let message = `¡Hola *${CONFIG.businessName}*! 🎁🌻\n\n`;
-  message += `Me encantó este regalo y quisiera pedirlo:\n\n`;
-  message += `✨ *Producto:* ${gift.name}\n`;
-  message += `🏷️ *Precio:* ${CONFIG.currencySymbol} ${gift.price}\n`;
-  message += `📦 *Detalle:* ${gift.description}\n\n`;
-  message += `¿Tienen disponibilidad inmediata para entrega / envío y me brindan sus datos de pago? ¡Muchas gracias! 💛`;
-
-  const encodedUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
-  launchDaisyConfetti();
-  window.open(encodedUrl, "_blank");
-}
-
-// Reproductor Lo-Fi Relajante Ambient Widget
+// Reproductor Lo-Fi Relajante
 function initLoFiPlayer() {
   const toggleBtn = document.getElementById("lofi-toggle-btn");
   const disc = document.getElementById("lofi-disc");
@@ -539,8 +468,6 @@ function initLoFiPlayer() {
 
   if (!toggleBtn) return;
 
-  // Creamos un sintetizador de audio binaural / ambiente lo-fi relajante usando Web Audio API
-  // para que funcione 100% sin depender de archivos de terceros caídos ni bloqueos de CORS
   let audioCtx = null;
   let oscillator1 = null;
   let oscillator2 = null;
@@ -551,17 +478,16 @@ function initLoFiPlayer() {
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       audioCtx = new AudioContext();
 
-      // Sonido de acordes cálidos pentatónicos relajantes (Vibes de tardes de café)
       gainNode = audioCtx.createGain();
       gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
 
       oscillator1 = audioCtx.createOscillator();
       oscillator1.type = "sine";
-      oscillator1.frequency.setValueAtTime(261.63, audioCtx.currentTime); // C4
+      oscillator1.frequency.setValueAtTime(261.63, audioCtx.currentTime);
 
       oscillator2 = audioCtx.createOscillator();
       oscillator2.type = "triangle";
-      oscillator2.frequency.setValueAtTime(329.63, audioCtx.currentTime); // E4
+      oscillator2.frequency.setValueAtTime(329.63, audioCtx.currentTime);
 
       oscillator1.connect(gainNode);
       oscillator2.connect(gainNode);
@@ -570,7 +496,7 @@ function initLoFiPlayer() {
       oscillator1.start();
       oscillator2.start();
     } catch (e) {
-      console.log("Audio not supported or blocked by user gesture");
+      console.log("Audio not supported or blocked");
     }
   }
 
@@ -597,10 +523,9 @@ function initLoFiPlayer() {
   });
 }
 
-// Lanzar confeti de margaritas amarillas
+// Confeti Festivo de Margaritas
 function launchDaisyConfetti() {
   if (typeof confetti === "function") {
-    // Usar la librería canvas-confetti con tonos amarillos y pastel
     confetti({
       particleCount: 45,
       spread: 70,
